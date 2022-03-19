@@ -10,7 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from dataclasses import dataclass
+from http import client
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,10 +81,19 @@ WSGI_APPLICATION = 'LikkleDeedsOfKindness.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        "NAME": env("DATABASE_NAME"),
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+        "USER": env("DATABASE_USER"),
+        "PASSWORD": env("DATABASE_PASS"),
     }
 }
+#my.cnf
+# [client]
+# database = "LikkleDeedsOfKindnessDB"
+# user = "root"
+# password = "BernRootMYSQL"
 
 
 # Password validation
