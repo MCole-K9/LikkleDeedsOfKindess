@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from http import client
 from pathlib import Path
 import environ
+import os
 
 env = environ.Env()
 environ.Env.read_env()
@@ -43,11 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "donate.app.DonateConfig",
-    "cause.app.CauseConfig",
-    "project.app.ProjectConfig",
-    "user.app.UserConfig",
-    "volunteer.app.VolunteerConfig",
+    # "donate.app.DonateConfig",
+    # "cause.app.CauseConfig",
+    # "project.app.ProjectConfig",
+    # "user.app.UserConfig",
+    # "volunteer.app.VolunteerConfig",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,11 @@ ROOT_URLCONF = 'LikkleDeedsOfKindness.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, "LikkleDeedsOfKindness", "templates", "LikkleDeedsOfKindness"),
+        
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
