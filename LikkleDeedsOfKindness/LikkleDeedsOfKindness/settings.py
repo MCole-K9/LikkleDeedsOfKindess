@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # "donate.app.DonateConfig",
-    # "cause.app.CauseConfig",
-    # "project.app.ProjectConfig",
-    # "user.app.UserConfig",
-    # "volunteer.app.VolunteerConfig",
+    "donate.apps.DonateConfig",
+     "cause.apps.CauseConfig",
+    # "project.apps.ProjectConfig",
+    # "user.apps.UserConfig",
+    # "volunteer.apps.VolunteerConfig",
 ]
 
 MIDDLEWARE = [
