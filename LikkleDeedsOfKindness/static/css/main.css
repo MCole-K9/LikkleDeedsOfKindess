@@ -1,0 +1,28 @@
+
+body{
+    border: none;
+}
+#home-header{
+    background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+}
+.call-to-action:hover{
+    background-color: #37BC9B;
+    
+}
+#donate-now{
+    background-color: #31A98B;
+}
+#join-us{
+    background-color: #2C967C;
+}
+#get-involved{
+    background-color: #26836C;
+}
+#get-involved:hover, #donate-now:hover, #join-us:hover {
+    background-color: #37BC9B;
+    cursor : pointer;
+}
+
