@@ -6,24 +6,17 @@ body{
     background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 86.5vh;
     position: relative;
 }
-#overlay{
-    background-color: black;
-    opacity: .3; 
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 0;
+
+#call-to-action{
+    margin-top: 8rem;
+    max-width: 50%;
 }
 nav li a{
     font-size: 1.2rem;
     color: white;
-}
-.call-to-action:hover{
-    background-color: #37BC9B;
-    
 }
 #donate-now{
     background-color: #31A98B;
