@@ -68,7 +68,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, "templates"),
             os.path.join(BASE_DIR, "LikkleDeedsOfKindness", "templates", "LikkleDeedsOfKindness"),
-        
+            os.path.join(BASE_DIR, "cause", "templates", "cause"),
             ],
         'APP_DIRS': True,
         'OPTIONS': {
