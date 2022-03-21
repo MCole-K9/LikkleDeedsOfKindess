@@ -1,6 +1,6 @@
-
 body{
-    border: none;
+    margin: 0;
+    padding: 0;
 }
 #home-header{
     background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg");
@@ -32,6 +32,3 @@ nav li a{
     cursor : pointer;
 }
 
-.event-date{
-    background-color: #31A98B;
-}
