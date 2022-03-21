@@ -1,8 +1,234 @@
 {%extends 'base.html'%}
+{%load static%}
+
 {%block title%}<title>Home</title> {%endblock%}
+{%block style%}
+    <style>
+        .event-date{
+            background-color: #31A98B;
+            width: 200px;
+        }
+        .btn-info{
+            background-color: #31A98B;
+            border: #31A98B solid 1px ;
+        }
+        .btn-info:hover{
+            background-color: #37BC9B;
+            
+        }
+        .btn-outline-info{
+            border: #31A98B solid 1px ;
+            color: #31A98B;
+        
+        }
+        .btn-outline-info:hover{
+            background-color: #31A98B;
+            border: #31A98B solid 1px ;
+        }
+    </style>
+{%endblock%}
+
 
 {%block content%}
 
+<header id="home-header">
+    <div id="overlay"></div>
+    {%include "component/navbar.html"%}
+    <div id="call-to-action" class="px-5 ">
+        <h1 class="text-white mb-4" >Make a difference for people who need it the most</h1>
+        <button class="btn btn-info text-white py-1 px-5">Donate</button>
+    </div>
+    
+</header>
+<main class="container-fluid">
+    <section class="row text-white mb-5">
+        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action">
+            <small><p>View Our Causes</p></small>
+            <h4>Donate Now</h4>
+        </div>
+        <div id="join-us" class="col-12 col-lg-4 text-center py-2 call-to-action">
+            <small><p>Become a Volunteer</p></small>
+            <h4>Join Us Now</h4>
+        </div>
+        <div id="get-involved" class="col-12 col-lg-4 text-center py-2 call-to-action">
+            <small><p>View Our Events</p></small>
+            <h4>Get Involved</h4>
+        </div>
+    </section>
+    <div class="row px-5 mb-5">
 
+        <div class="col-12 col-lg-5">
+            <h1>Causes that need your urgent attention </h1>
+        </div>
+        <div class="col-12 col-lg-7">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
+        </div>
+        
+    </div>
+    <section id="causes" class="px-5">
+        <div id="carouselCause" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row gy-3">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Help Some Cause</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum aut quaerat culpa nulla ab magnam non illum ut reiciendis laudantium assumenda odit dicta alias quia</p>
+                                    <div class="d-flex justify-content-evenly">
+                                        <button class="btn btn-outline-info px-4">View</button>
+                                        <button class="btn btn-info text-white px-4">Donate</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Help Some Cause</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum aut quaerat culpa nulla ab magnam non illum ut reiciendis laudantium assumenda odit dicta alias quia</p>
+                                    <div class="d-flex justify-content-evenly">
+                                        <button class="btn btn-outline-info px-4">View</button>
+                                        <button class="btn btn-info text-white px-4">Donate</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Help Some Cause</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum aut quaerat culpa nulla ab magnam non illum ut reiciendis laudantium assumenda odit dicta alias quia</p>
+                                    <div class="d-flex justify-content-evenly">
+                                        <button class="btn btn-outline-info px-4">View</button>
+                                        <button class="btn btn-info text-white px-4">Donate</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Help Some Cause</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum aut quaerat culpa nulla ab magnam non illum ut reiciendis laudantium assumenda odit dicta alias quia</p>
+                                    <div class="d-flex justify-content-evenly">
+                                        <button class="btn btn-outline-info px-4">View</button>
+                                        <button class="btn btn-info text-white px-4">Donate</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselCause" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCause" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button> -->
+        </div>
+    </section>
+    <section id="event-gallary" class="px-5 my-5">
+        <div class="row">
+            <div id="event" class="col-12 col-lg-6 mb-5">
+                <h3 class="mb-5">Upcoming Events</h3>
+                <div class="d-flex">
+                    <div class="card text-center event-date me-4" >
+                        <div class="card-body text-white align-items-center pt-5" >
+                            <h6>Mar</h6>
+                            <hr>
+                            <h6>12</h6>
+                            <!-- <h6>22</h6> -->
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <p>Day , Time</p>
+                        <h5>Some Beach Clean Up</h5>
+                        <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
+                        <!-- <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-outline-info">View Details</button>
+                        </div> -->
+                    </div>
+                </div>
+                
+            </div>
+            <div id="gallary" class="col-12 col-lg-6 mb-5" >
+                <h3 class="mb-5">Updates from Gallary</h3>
+                <div id="home-photos" class="row px-3 pb-3 pt-5 rounded" style="background-color: #31A98B ;">
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>                   
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                            <figcaption class="figure-caption text-white">Image Caption</figcaption>
+                        </figure>
+                        
+                    </div>
+         
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="text-center">
+        <h3 class="mb-1">Some of Our Success Stories</h3>
+    </div>
+    <section id="success-stories" class="bg-light px-5  mb-5">
+        <div id="carouselSuccessStories" class="carousel slide mt-4 py-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row g-0">
+                        <div class="col-12 col-lg-5">
+                            <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                        </div>
+                        <div class="col-12 col-lg-7 px-3 py-4 bg-white rounded">
+                            <h4>Debra Can Now</h4>
+                            <p class="lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, consequatur veritatis. Asperiores tempore id repellendus velit iure labore saepe! Unde ab totam, deleniti harum qui illum omnis repudiandae provident laudantium.</p>
+                            <button class="btn btn-outline-info">View Full Story</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 {%endblock%}
