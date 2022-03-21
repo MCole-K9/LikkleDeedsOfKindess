@@ -10,10 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from dataclasses import dataclass
-from http import client
+
 from pathlib import Path
-from re import S
 import environ
 import os
 
@@ -100,6 +98,7 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASS"),
     }
 }
+
 #my.cnf
 # [client]
 # database = "LikkleDeedsOfKindnessDB"
