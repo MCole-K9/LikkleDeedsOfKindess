@@ -17,18 +17,18 @@ $(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
      //>=, not <=
-    if (scroll >= 50) {
+    if (scroll >= 300) {
         
         $("nav").addClass("bg-white");
         $("nav").removeClass("navbar-dark")
         $("nav").addClass("navbar-light");
-        $("nav").addClass("fixed-top");
+        $("nav").addClass("sticky-top");
 
     }else{
 
         $("nav").removeClass("bg-white");
         $("nav").addClass("navbar-dark")
-        $("nav").removeClass("fixed-top");
+        $("nav").removeClass("sticky-top");
         $("nav").RemoveClass("navbar-light");
     }
 });
