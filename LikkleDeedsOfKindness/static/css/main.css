@@ -7,6 +7,19 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 95vh;
+    position: relative;
+}
+#overlay{
+    background-color: black;
+    opacity: .3; 
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+nav li a{
+    font-size: 1.2rem;
+    color: white;
 }
 .call-to-action:hover{
     background-color: #37BC9B;
@@ -26,3 +39,6 @@ body{
     cursor : pointer;
 }
 
+.event-date{
+    background-color: #31A98B;
+}
