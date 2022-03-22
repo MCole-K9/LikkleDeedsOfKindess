@@ -2,30 +2,6 @@
 {%load static%}
 
 {%block title%}<title>Home</title> {%endblock%}
-{%block style%}
-    <style>
-        .event-date{
-            background-color: #31A98B;
-            width: 200px;
-        }
-        .btn-info{
-            background-color: #31A98B;
-            border: #31A98B solid 1px ;
-        }
-        .btn-info:hover{
-            background-color: #37BC9B;
-            
-        }
-        .btn-outline-info{
-            border: #31A98B solid 1px ;
-            color: #31A98B;
-        }
-        .btn-outline-info:hover{
-            background-color: #31A98B;
-            border: #31A98B solid 1px ;
-        }
-    </style>
-{%endblock%}
 
 
 {%block content%}
@@ -33,14 +9,14 @@
 <header id="home-header">
     {%include "component/navbar.html"%}
     <div id="call-to-action" class="px-5 ">
-        <h1 class="text-white mb-4 lh-md" >Make a difference for people who need it the most</h1>
+        <h1 class="text-white mb-4 lh-md red" >Make a difference for people who need it the most</h1>
         <button class="btn btn-info text-white py-1 px-5">Donate</button>
     </div>
     
 </header>
 <main class="container-fluid">
     <section class="row text-white mb-5">
-        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action">
+        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('/')">
             <small><p>View Our Causes</p></small>
             <h4>Donate Now</h4>
         </div>
@@ -48,7 +24,7 @@
             <small><p>Become a Volunteer</p></small>
             <h4>Join Us Now</h4>
         </div>
-        <div id="get-involved" class="col-12 col-lg-4 text-center py-2 call-to-action">
+        <div id="get-involved" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'cause:Events' %}')">
             <small><p>View Our Events</p></small>
             <h4>Get Involved</h4>
         </div>
@@ -135,12 +111,12 @@
             </button> -->
         </div>
     </section>
-    <section id="event-gallary" class="px-5 my-5">
+    <section id="event-gallery" class="px-5 my-5">
         <div class="row">
             <div id="event" class="col-12 col-lg-6 mb-5">
                 <h3 >Upcoming Events</h3>
                 {% include "component/seperator.html" %}
-                <div class="d-flex">
+                <div class="d-flex mb-4">
                     <div class="card text-center event-date me-4" >
                         <div class="card-body text-white align-items-center pt-5" >
                             <h6>Mar</h6>
@@ -158,7 +134,9 @@
                         </div> -->
                     </div>
                 </div>
-                
+                <div class="d-flex justify-content-end">
+                    <button  class="btn btn-outline-info" onclick="goToLocation('{% url 'cause:Events' %}')">View All</button>
+                </div> 
             </div>
             <div id="gallary" class="col-12 col-lg-6 mb-5" >
                 <h3>Updates from Gallary</h3>
