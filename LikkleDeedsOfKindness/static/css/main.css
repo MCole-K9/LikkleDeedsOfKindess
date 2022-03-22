@@ -4,14 +4,15 @@ body{
 }
 #home-header{
     background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg");
+    background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 86.5vh;
+    height: 100vh;
     position: relative;
 }
 
 #call-to-action{
-    margin-top: 8rem;
+    margin-top: 9rem;
     max-width: 50%;
 }
 nav li a{
@@ -30,5 +31,15 @@ nav li a{
 #get-involved:hover, #donate-now:hover, #join-us:hover {
     background-color: #37BC9B;
     cursor : pointer;
+}
+
+#cause-header{
+
+    background-image: url("../images/pexels-ron-lach-9169661.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vh;
+    background-position: 23% 23%;
+    position: relative;
 }
 
