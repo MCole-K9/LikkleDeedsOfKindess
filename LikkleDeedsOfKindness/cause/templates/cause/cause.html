@@ -1,14 +1,93 @@
 {%extends "base.html"%}
 {%load static%}
 
-{%block title%} <title>Causes</title> {%endblock%}
+{%block title%}<title>Causes</title> {%endblock%}
 
 {%block style%} 
-
+<style>
+    .btn-info{
+        background-color: #31A98B;
+        border: #31A98B solid 1px ;
+    }
+    .btn-info:hover{
+        background-color: #37BC9B;
+        
+    }
+    .btn-outline-info{
+        border: #31A98B solid 1px ;
+        color: #31A98B;
+    }
+    .btn-outline-info:hover{
+        background-color: #31A98B;
+        border: #31A98B solid 1px ;
+    }
+</style>
 {%endblock%}
 
 {%block content%}
 
-<h1>Cause Page</h1>
+<header id="cause-header">
+    {%include 'component/navbar.html' %}
+    <div class="px-5 mt-5 text-white">
+        <h1>Our Causes</h1>
+        {% include "component/seperator.html" %}
+    </div>
+
+</header>
+<main class="container-fluid">
+    <section class="row px-5 gy-0 mt-5">
+        <div id="causes" class="col-12 col-lg-8">
+            <div class="row">
+                <div class="col-12 col-lg-5">
+                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                </div>
+                <div class="col-12 col-lg-7">
+                    <h2>Help Some Cause</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-info px-4 me-4">View</button>
+                        <button class="btn btn-info text-white px-4">Donate</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                <div class="col-12 col-lg-5">
+                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                </div>
+                <div class="col-12 col-lg-7">
+                    <h2>Help Some Cause</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-info px-4 me-4">View</button>
+                        <button class="btn btn-info text-white px-4">Donate</button>
+                    </div>
+                </div>
+                <hr class="my-5">
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-5">
+                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                </div>
+                <div class="col-12 col-lg-7">
+                    <h2>Help Some Cause</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-info px-4 me-4">View</button>
+                        <button class="btn btn-info text-white px-4">Donate</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5">
+        </div>
+        <div id="cause-category" class="col-12 col-lg-4">
+            <h3>Cause Categories</h3>
+            {% include "component/seperator.html" %}
+            <ul class="list-unstyled">
+                <li>Hello</li>
+            </ul>
+        </div>
+    </section>
+</main>
 
 {%endblock%}
