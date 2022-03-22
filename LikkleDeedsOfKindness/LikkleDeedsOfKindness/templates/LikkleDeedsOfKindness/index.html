@@ -19,7 +19,6 @@
         .btn-outline-info{
             border: #31A98B solid 1px ;
             color: #31A98B;
-        
         }
         .btn-outline-info:hover{
             background-color: #31A98B;
@@ -32,10 +31,9 @@
 {%block content%}
 
 <header id="home-header">
-    <div id="overlay"></div>
     {%include "component/navbar.html"%}
     <div id="call-to-action" class="px-5 ">
-        <h1 class="text-white mb-4" >Make a difference for people who need it the most</h1>
+        <h1 class="text-white mb-4 lh-md" >Make a difference for people who need it the most</h1>
         <button class="btn btn-info text-white py-1 px-5">Donate</button>
     </div>
     
@@ -59,13 +57,14 @@
 
         <div class="col-12 col-lg-5">
             <h1>Causes that need your urgent attention </h1>
+            {% include "component/seperator.html" %}
         </div>
         <div class="col-12 col-lg-7">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
         </div>
         
     </div>
-    <section id="causes" class="px-5">
+    <section id="causes-home" class="px-5">
         <div id="carouselCause" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -139,7 +138,8 @@
     <section id="event-gallary" class="px-5 my-5">
         <div class="row">
             <div id="event" class="col-12 col-lg-6 mb-5">
-                <h3 class="mb-5">Upcoming Events</h3>
+                <h3 >Upcoming Events</h3>
+                {% include "component/seperator.html" %}
                 <div class="d-flex">
                     <div class="card text-center event-date me-4" >
                         <div class="card-body text-white align-items-center pt-5" >
@@ -161,7 +161,8 @@
                 
             </div>
             <div id="gallary" class="col-12 col-lg-6 mb-5" >
-                <h3 class="mb-5">Updates from Gallary</h3>
+                <h3>Updates from Gallary</h3>
+                {% include "component/seperator.html" %}
                 <div id="home-photos" class="row px-3 pb-3 pt-5 rounded" style="background-color: #31A98B ;">
                     <div class="col-lg-6">
                         <figure class="figure">
@@ -220,7 +221,7 @@
                             <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
                         </div>
                         <div class="col-12 col-lg-7 px-3 py-4 bg-white rounded">
-                            <h4>Debra Can Now</h4>
+                            <h4>Debra Can Now Study With Her Friends</h4>
                             <p class="lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, consequatur veritatis. Asperiores tempore id repellendus velit iure labore saepe! Unde ab totam, deleniti harum qui illum omnis repudiandae provident laudantium.</p>
                             <button class="btn btn-outline-info">View Full Story</button>
                         </div>
