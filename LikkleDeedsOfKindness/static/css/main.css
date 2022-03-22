@@ -8,7 +8,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    position: relative;
 }
 
 #call-to-action{
@@ -33,13 +32,34 @@ nav li a{
     cursor : pointer;
 }
 
-#cause-header{
+#cause-header, #gallery-header{
 
     background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 45vh;
     background-position: 23% 23%;
-    position: relative;
 }
 
+.event-date{
+    background-color: #31A98B;
+    width: 200px;
+}
+
+/*Bootstrap Customization */
+.btn-info{
+    background-color: #31A98B;
+    border: #31A98B solid 1px ;
+}
+.btn-info:hover{
+    background-color: #37BC9B;
+    
+}
+.btn-outline-info{
+    border: #31A98B solid 1px ;
+    color: #31A98B;
+}
+.btn-outline-info:hover{
+    background-color: #31A98B;
+    border: #31A98B solid 1px ;
+}
