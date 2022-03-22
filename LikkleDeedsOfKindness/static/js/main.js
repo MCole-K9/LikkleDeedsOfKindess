@@ -1,23 +1,13 @@
 
-
-
-$("#donate-now").click(()=>{
-    location.href = "/"
-});
-
-$("#join-us").click(()=>{
-    location.href = "/"
-});
-
-$("#get-involved").click(()=>{
-    location.href = "/"
-});
+function goToLocation(url) { 
+    location.href = url;
+}
 
 $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
 
      //>=, not <=
-    if (scroll >= 300) {
+    if (scroll >= 80) {
         
         $("nav").addClass("bg-white");
         $("nav").removeClass("navbar-dark")
@@ -29,6 +19,6 @@ $(window).scroll(function() {
         $("nav").removeClass("bg-white");
         $("nav").addClass("navbar-dark")
         $("nav").removeClass("sticky-top");
-        $("nav").RemoveClass("navbar-light");
+        $("nav").removeClass("navbar-light");
     }
 });
