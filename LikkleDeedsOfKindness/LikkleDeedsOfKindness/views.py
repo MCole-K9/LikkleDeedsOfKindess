@@ -8,3 +8,6 @@ def index(request):
 
 def about(request):
     return render(request, "about.html", {})
+
+def gallery(request):
+    return render(request, "gallery.html", {})
