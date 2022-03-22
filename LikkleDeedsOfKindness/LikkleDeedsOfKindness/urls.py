@@ -24,5 +24,5 @@ urlpatterns = [
     path("", views.index, name="Index"),
     path("About", views.about, name = "About"),
     path("Gallery", views.gallery, name = "Gallery"),
-    path("cause/", include("cause.urls")),
+    path("Cause/", include("cause.urls")),
 ]
