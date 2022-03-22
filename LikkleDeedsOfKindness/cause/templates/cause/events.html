@@ -1,0 +1,74 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block title%}<title>Events</title> {%endblock%}
+
+
+
+{%block content%}
+
+<header id="gallery-header">
+    {%include 'component/navbar.html' %}
+    <div class="px-5 mt-5 text-white">
+        <h1>Upcoming Events</h1>
+        {% include "component/seperator.html" %}
+    </div>
+</header>
+<main class="container-fluid">
+    <section id="upcoming-events" class="row px-5 mt-5">
+        <div class="d-flex">
+            <div class="card text-center event-date me-4" >
+                <div class="card-body text-white align-items-center pt-5" >
+                    <h6>Mar</h6>
+                    <hr>
+                    <h6>12</h6>
+                    <!-- <h6>22</h6> -->
+                </div>
+            </div>
+            <div class="flex-grow-1">
+                <p>Day , Time</p>
+                <h5>Some Beach Clean Up</h5>
+                <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
+                <!-- <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-info">View Details</button>
+                </div> -->
+            </div>
+        </div><div class="d-flex">
+            <div class="card text-center event-date me-4" >
+                <div class="card-body text-white align-items-center pt-5" >
+                    <h6>Mar</h6>
+                    <hr>
+                    <h6>12</h6>
+                    <!-- <h6>22</h6> -->
+                </div>
+            </div>
+            <div class="flex-grow-1">
+                <p>Day , Time</p>
+                <h5>Some Beach Clean Up</h5>
+                <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
+                <!-- <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-info">View Details</button>
+                </div> -->
+            </div>
+        </div><div class="d-flex">
+            <div class="card text-center event-date me-4" >
+                <div class="card-body text-white align-items-center pt-5" >
+                    <h6>Mar</h6>
+                    <hr>
+                    <h6>12</h6>
+                    <!-- <h6>22</h6> -->
+                </div>
+            </div>
+            <div class="flex-grow-1">
+                <p>Day , Time</p>
+                <h5>Some Beach Clean Up</h5>
+                <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
+                <!-- <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-info">View Details</button>
+                </div> -->
+            </div>
+        </div>
+    </section>
+</main>
+
+{%endblock%}
