@@ -3,12 +3,15 @@
 
 {%block title%} <title>About</title> {%endblock%}
 
-{%block style%} 
-
-{%endblock%}
 
 {%block content%}
 
-<h1>About Page</h1>
+<header id="about-header">
+    {% include "component/navbar.html" %}
+    <div class="px-5 mt-5 text-white">
+        <h1>About Us</h1>
+        {% include "component/seperator.html" %}
+    </div>
+</header>
 
 {%endblock%}
