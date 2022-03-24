@@ -32,7 +32,7 @@ nav li a{
     cursor : pointer;
 }
 
-#cause-header, #gallery-header{
+#cause-header, #gallery-header, #about-header, #cause-detail-header, #project-header{
 
     background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
@@ -43,6 +43,12 @@ nav li a{
 
 .event-date{
     background-color: #31A98B;
+    
+}
+.events-date-sizing{
+    width: 100px;
+}
+.home-event-sizing{
     width: 200px;
 }
 
