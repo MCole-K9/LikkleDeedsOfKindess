@@ -7,3 +7,6 @@ def cause(request):
 
 def events(request):
     return render(request, "events.html", {}) 
+
+def cause_detail(request):
+    return render(request, "causedetail.html", {})
