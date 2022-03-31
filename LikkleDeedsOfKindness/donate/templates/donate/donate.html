@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block title%}<title>Donate</title> {%endblock%}
+
+
+{%block content%}
+
+<header id="donate-header">
+    {%include 'component/navbar.html' %}
+    {% comment %} <div class="px-5 mt-5 text-white">
+        <h1>Volunteer</h1>
+        {% include "component/seperator.html" %}
+    </div> {% endcomment %}
+</header>
+<main id="donate">
+  <section  class="container">
+       <div class="row pt-5">
+            <div class="col-12 col-lg-6 mx-auto">
+                <div class="bg-white py-3 px-4 rounded shadow-lg bg-body">
+                    <ul class="nav nav-fill nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-step1-tab" data-bs-toggle="pill" data-bs-target="#pills-step1" type="button" role="tab" aria-controls="pills-step1" aria-selected="true">Step 1</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-step2-tab" data-bs-toggle="pill" data-bs-target="#pills-step2" type="button" role="tab" aria-controls="pills-step2" aria-selected="false">Step 2</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-step3-tab" data-bs-toggle="pill" data-bs-target="#pills-step3" type="button" role="tab" aria-controls="pills-step3" aria-selected="false">Step 3</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
+                          <div>
+                            1. Amount
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
+                          <div>
+                            2. Your Information
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
+                          <div >
+                            3. Payment
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5  mx-auto">
+                <div class="bg-white rounded py-1 px-2 shadow-lg bg-body">
+                    <h5>Donate</h5>
+                </div>
+            </div>
+       </div>
+  </section>
+</main>
+
+{%endblock%}
