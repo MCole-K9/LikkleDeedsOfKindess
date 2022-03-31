@@ -70,6 +70,9 @@ TEMPLATES = [
             os.path.join(BASE_DIR, "LikkleDeedsOfKindness", "templates", "LikkleDeedsOfKindness"),
             os.path.join(BASE_DIR, "cause", "templates", "cause"),
             os.path.join(BASE_DIR, "project", "templates", "project"),
+            os.path.join(BASE_DIR, "volunteer", "templates", "volunteer"),
+            os.path.join(BASE_DIR, "user", "templates", "user"),
+            os.path.join(BASE_DIR, "donate", "templates", "donate"),
 
             ],
         'APP_DIRS': True,
