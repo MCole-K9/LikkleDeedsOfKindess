@@ -2,18 +2,17 @@ body{
     margin: 0;
     padding: 0;
 }
-#home-header, #donate{
-    /* background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg"); */
+#home-header{
     background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
-#donate{
+/* #donate{
     background-attachment: fixed;
     height: 80vh;
-}
+} */
 
 #call-to-action{
     margin-top: 9rem;
@@ -37,7 +36,7 @@ nav li a{
     cursor : pointer;
 }
 
-#cause-header, #gallery-header, #about-header, #cause-detail-header, #project-header{
+#cause-header, #gallery-header, #about-header, #cause-detail-header, #project-header, #donate-header{
 
     background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
@@ -55,6 +54,12 @@ nav li a{
 }
 .home-event-sizing{
     width: 200px;
+}
+.amount-check-lbl{
+    padding: 8px 48px;
+}
+.amount-other-check-lbl{
+    padding: 8px 113px;
 }
 
 /*Bootstrap Customization */
@@ -75,4 +80,14 @@ nav li a{
     border: #31A98B solid 1px ;
 }
 
-/* Stepper */
+.btn-check:active+.btn-info, .btn-check:checked+.btn-info, .btn-info.active, .btn-info:active, .show>.btn-info.dropdown-toggle {
+    color: white;
+    background-color: #37BC9B;
+    border-color: #37BC9B;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #31A98B;
+}
+
+
