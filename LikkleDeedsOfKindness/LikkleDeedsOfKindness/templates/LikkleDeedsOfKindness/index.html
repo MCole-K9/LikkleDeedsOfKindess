@@ -10,17 +10,17 @@
     {%include "component/navbar.html"%}
     <div id="call-to-action" class="px-5 ">
         <h1 class="text-white mb-4 lh-md red" >Make a difference for people who need it the most</h1>
-        <button class="btn btn-info text-white py-1 px-5">Donate</button>
+        <button class="btn btn-info text-white py-1 px-5" onclick="goToLocation('{% url 'donate:Donate' %}')">Donate</button>
     </div>
     
 </header>
 <main class="container-fluid">
     <section class="row text-white mb-5">
-        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('/')">
+        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'cause:Cause' %}')">
             <small><p>View Our Causes</p></small>
             <h4>Donate Now</h4>
         </div>
-        <div id="join-us" class="col-12 col-lg-4 text-center py-2 call-to-action">
+        <div id="join-us" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'volunteer:Volunteer' %}')">
             <small><p>Become a Volunteer</p></small>
             <h4>Join Us Now</h4>
         </div>
