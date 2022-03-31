@@ -2,12 +2,17 @@ body{
     margin: 0;
     padding: 0;
 }
-#home-header{
-    background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg");
+#home-header, #donate{
+    /* background-image: url("../images/pexels-lagos-food-bank-initiative-8060428.jpg"); */
     background-image: url("../images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+#donate{
+    background-attachment: fixed;
+    height: 80vh;
 }
 
 #call-to-action{
@@ -69,3 +74,5 @@ nav li a{
     background-color: #31A98B;
     border: #31A98B solid 1px ;
 }
+
+/* Stepper */
