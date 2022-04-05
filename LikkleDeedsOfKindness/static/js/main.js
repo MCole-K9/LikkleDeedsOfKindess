@@ -51,3 +51,39 @@ radioBtns.forEach(radioBtn =>{
 
     
 });
+
+let toStep2Btn = document.getElementById("toStep2");
+
+toStep2Btn.addEventListener("click", ()=>{
+
+    let Step2TabTrigger = document.getElementById("pills-step2-tab");
+    let tabTrigger = new bootstrap.Tab(Step2TabTrigger);
+    tabTrigger.show();
+});
+
+let backToStep1Btn = document.getElementById("backToStep1");
+
+backToStep1Btn.addEventListener("click", ()=>{
+
+    let Step1TabTrigger = document.getElementById("pills-step1-tab");
+    let tabTrigger = new bootstrap.Tab(Step1TabTrigger);
+    tabTrigger.show();
+});
+
+let toStep3Btn = document.getElementById("toStep3");
+
+toStep3Btn.addEventListener("click", ()=>{
+
+    let Step3TabTrigger = document.getElementById("pills-step3-tab");
+    let tabTrigger = new bootstrap.Tab(Step3TabTrigger);
+    tabTrigger.show();
+});
+
+let backToStep2Btn = document.getElementById("backToStep2");
+
+backToStep2Btn.addEventListener("click", ()=>{
+
+    let Step2TabTrigger = document.getElementById("pills-step2-tab");
+    let tabTrigger = new bootstrap.Tab(Step2TabTrigger);
+    tabTrigger.show();
+});
