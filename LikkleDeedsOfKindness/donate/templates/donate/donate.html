@@ -15,7 +15,7 @@
 </header>
 <main id="donate">
   <section  class="container">
-       <div class="row pt-5 gy-4">
+       <div class="row pt-5 mb-5 gy-4">
             <div class="col-12 col-lg-5 mx-auto">
                 <div class="bg-white py-3 px-4 rounded shadow-lg bg-body">
                     <ul class="nav nav-fill nav-pills mb-3" id="pills-tab" role="tablist">
@@ -32,7 +32,7 @@
                       <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
                           <div>
-                            1. Amount
+                             Amount
                           </div>
                           <div id="donate-amount" class="row mt-2 gy-2 text-center text-white">
                               <div class="col-4">
@@ -75,17 +75,61 @@
                             </label>
                           </div>
                           <div id="collapse-other" class="d-none">
-                              Help
+                              <div class="my-3 ">
+                                <label for="customer-amount" class="form-label">Customer Amount</label>
+                                <input type="number" class="form-control" id="customer-amount" placeholder="">
+                              </div>
                           </div> 
+                          <div class=" my-3 d-flex justify-content-end">
+                              <button id="toStep2" type="button" class="btn btn-sm btn-outline-info px-4">Next</button>
+                          </div>
                         </div>
                         <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
                           <div>
-                            2. Your Information
+                            Your Information
+                          </div>
+                          <div class="row my-4">
+                            <div class="col-12 col-lg-6">
+                              <div class="my-2">
+                                <label for="first-name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="first-name" placeholder="John">
+                              </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                              <div class="my-2">
+                                <label for="last-name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="last-name" placeholder="Doe.">
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="my-2">
+                                <label for="email-address" class="form-label">Email Address</label>
+                                <input type="text" class="form-control" id="email-address" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="my-2">
+                                <label for="phone-number" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="phone-number" placeholder="">
+                              </div>
+                            </div>
+                          
+                          </div>
+                          <div class=" my-3 d-flex justify-content-end">
+                            <button id="backToStep1" type="button" class="btn btn-sm btn-outline-info px-4 me-3">Back</button>
+                            <button id="toStep3" type="button" class="btn btn-sm btn-outline-info px-4">Next</button>
                           </div>
                         </div>
                         <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
                           <div >
-                            3. Payment
+                            Payment
+                          </div>
+                          <div class="row">
+
+                          </div>
+                          <div class=" my-3 d-flex justify-content-end">
+                            <button id="backToStep2" type="button" class="btn btn-sm btn-outline-info px-4 me-3">Back</button>
+                            <button id="donatebtn" type="button" class="btn btn-sm btn-outline-info px-5">Donate Now</button>
                           </div>
                         </div>
                       </div>
