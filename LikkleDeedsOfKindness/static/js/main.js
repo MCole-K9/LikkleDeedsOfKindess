@@ -87,3 +87,14 @@ backToStep2Btn.addEventListener("click", ()=>{
     let tabTrigger = new bootstrap.Tab(Step2TabTrigger);
     tabTrigger.show();
 });
+
+
+let payWithCardBtn  = document.getElementById("pay-with-card");
+
+payWithCardBtn.addEventListener("click", ()=>{
+    
+    document.getElementById("card-info").classList.remove("d-none");
+
+    document.getElementById("donatebtn").classList.remove("d-none");
+    
+});
