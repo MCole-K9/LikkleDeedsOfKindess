@@ -62,6 +62,12 @@ nav li a{
     padding: 8px 113px;
 }
 
+.h-rule{
+    width: 25%;
+    position: relative;
+    bottom: 5px;
+}
+
 /*Bootstrap Customization */
 .btn-info{
     background-color: #31A98B;
