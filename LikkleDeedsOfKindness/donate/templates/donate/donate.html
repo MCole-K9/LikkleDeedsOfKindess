@@ -124,12 +124,74 @@
                           <div >
                             Payment
                           </div>
-                          <div class="row">
-
+                          <div class="d-grid col-6 mx-auto my-3">
+                            <button class="btn ">Pay With Paypal</button>
                           </div>
-                          <div class=" my-3 d-flex justify-content-end">
+                          <div class="d-flex justify-content-between my-2">
+                            <hr class="h-rule">
+                            <div>
+                              <p class="small">Or Pay with Card Below</p>
+                            </div>
+                            <hr class="h-rule">
+                          </div>
+                          <div class="d-grid col-6 mx-auto my-4">
+                            <button id="pay-with-card" class="btn">Pay With Card</button>
+                          </div>
+                          <div id="card-info" class="row d-none">
+                              <div class="col-12">
+                                <div class="my-2">
+                                  <input aria-label="Card Holder Name" type="text" class="form-control" id="card-holder-name" placeholder="Card Holder Name">
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="my-2">
+                                  <input aria-label="Card Holder Email" type="email" class="form-control" id="card-holder-email" placeholder="Card Holder Email">
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="my-2">
+                                  <input aria-label="Card Number" type="text" class="form-control" id="card-number" placeholder="Card Number">
+                                </div>
+                              </div>
+                              <div class="input-group col-12 my-2">
+                                <input type="text" name="expriDate" aria-label="Expiration Date" class="form-control" placeholder="MM/YY">
+                                <input type="text" name="cvv" aria-label="CVV" class="form-control" placeholder="CVV">
+                              </div>
+                              <p>Billing Address</p>
+                              <div class="col-12">
+                                <div class="my-2">
+                                  <input aria-label="Address Line 1" type="text" class="form-control" id="address-lime-1" placeholder="Address Line 1">
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="my-2">
+                                  <input aria-label="Address Line 2" type="text" class="form-control" id="address-lime-2" placeholder="Address Line 2 (Optional)">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="my-2">
+                                  <input aria-label="city" type="text" class="form-control" id="city" placeholder="City">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="my-2">
+                                  <input aria-label="state-provience-parish" type="text" class="form-control" id="state-provience-parish" placeholder="State/Provience/Parish">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="my-2">
+                                  <input aria-label="country" type="text" class="form-control" id="country" placeholder="Country">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="my-2">
+                                  <input aria-label="zipcode" type="text" class="form-control" id="zip-code" placeholder="Zip Code">
+                                </div>
+                              </div>
+                          </div>
+                          <div class=" my-3 d-flex justify-content-start">
                             <button id="backToStep2" type="button" class="btn btn-sm btn-outline-info px-4 me-3">Back</button>
-                            <button id="donatebtn" type="button" class="btn btn-sm btn-outline-info px-5">Donate Now</button>
+                            <button id="donatebtn" type="button" class="btn btn-sm btn-outline-info px-5 d-none">Donate Now</button>
                           </div>
                         </div>
                       </div>
