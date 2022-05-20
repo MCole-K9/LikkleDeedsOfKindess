@@ -1,0 +1,92 @@
+{% extends 'Portal.html' %}
+{% load static %} 
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h4>Upcoming Events</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Event</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matthew Cole</td>
+                                <td>m.b.cole300@gmail.com</td>
+                                <td>(876)820-2204</td>
+                                <td>Beach Clean Up</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4>General</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                         
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matthew Cole</td>
+                                <td>m.b.cole300@gmail.com</td>
+                                <td>(876)820-2204</td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4>Admistrative Support</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matthew Cole</td>
+                                <td>m.b.cole300@gmail.com</td>
+                                <td>(876)820-2204</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    
+{% endblock  %}
+
+{% block script %}
+    <script>
+        $(document).ready(()=>{
+            $(".active").toggleClass("active");
+            $("#volunteers").toggleClass("active");
+        });
+        
+    </script>
+{% endblock%}

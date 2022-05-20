@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def dashboard(request):
     return render(request, "Dashboard.html", {})
+
+def volunteers(request):
+    return render(request, "Volunteers.html", {})
+    
