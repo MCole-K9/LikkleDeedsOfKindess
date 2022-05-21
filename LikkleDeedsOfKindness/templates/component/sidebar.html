@@ -7,7 +7,7 @@
             </a>
           </li> {% endcomment %}
           <li>
-            <a id="dashboard" href="{% url 'user:Dashboard' %}" class="nav-link active text-white d-flex align-items-center" aria-current="page">
+            <a id="dashboard" href="{% url 'user:Dashboard' %}" class="nav-link text-white d-flex align-items-center" aria-current="page">
                 <span class="material-symbols-outlined">
                     dashboard
                 </span>
@@ -23,7 +23,7 @@
             </a>
           </li>
           <li>
-            <a id="managecauses" href="#" class="nav-link text-white d-flex align-items-center">
+            <a id="managecauses" href="{% url 'user:ManageCauses' %}" class="nav-link text-white d-flex align-items-center">
                 <span class="material-symbols-outlined">
                     network_intelligence
                 </span>
