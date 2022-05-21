@@ -71,3 +71,13 @@
         
     </section>
 {% endblock content %}
+
+{% block script %}
+
+<script>
+    $(document).ready(()=>{
+        
+        $("#dashboard").toggleClass("active");
+    });
+</script>
+{% endblock  %}
