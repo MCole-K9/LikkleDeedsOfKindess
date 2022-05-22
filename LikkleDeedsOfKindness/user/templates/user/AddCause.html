@@ -6,7 +6,7 @@
     
     <div class="container-fluid">
 
-        <form method="POST" action="{% url 'user:AddCause' %}" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
+        <form method="POST" action="{% url 'user:AddCause' %}" encType="multipart/form-data" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
             {% csrf_token %}
             <div class="row gy-2">
                 <div class="col-12">
