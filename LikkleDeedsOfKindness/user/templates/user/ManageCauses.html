@@ -5,23 +5,32 @@
 
     
     <div class="container-fluid">
-        <h2>Causes</h2>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Causes</h2>
+            <button class="btn btn-primary my-2" onclick="goToLocation('{% url 'user:AddCause' %}')">Add Cause <i class="fa-solid fa-plus"></i></button>
+        </div>
         <hr>
-        <button class="btn btn-primary my-2" onclick="goToLocation('{% url 'user:AddCause' %}')"> <i class="fa-solid fa-plus"></i> Add Cause</button>
-
-        <div class="row">
-            <div class="col-12 col-lg-5">
-                <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
-            </div>
-            <div class="col-12 col-lg-7">
-                <h3>Help Some Cause</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
-                <div class="d-flex">
-                    <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'cause:Detail' %}')">Edit</button>
-                    <button class="btn btn-info text-white px-4">Delete</button>
+        {% for cause in causes %}
+            <div class="row my-2">
+                <div class="col-12 col-lg-5">
+                    <div class="ratio ratio-16x9">
+                        <img class="img-fluid rounded" src="{{cause.image.url}}" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-12 col-lg-7">
+                    <h3>{{cause.title}}</h3>
+                    <p>{{cause.description|truncatechars:420}}</p>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'cause:Detail' %}')">Edit</button>
+                        <button class="btn btn-info text-white px-4">Delete</button>
+                    </div>
                 </div>
             </div>
-        </div>
+            {%empty%}
+            <h2>Nothing yet. Add Cause to get started</h2>
+        {% endfor %}
+       
     </div>
     
     
