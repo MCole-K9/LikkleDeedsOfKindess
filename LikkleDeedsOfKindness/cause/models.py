@@ -8,7 +8,10 @@ class Cause(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     content = models.TextField()
-    image = models.ImageField(upload_to="static/images")
+    image = models.ImageField(upload_to="images/")
+
+    def __str__(self):
+        return self.title
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
@@ -17,3 +20,5 @@ class Event(models.Model):
     city = models.CharField(max_length=200)
     cause = models.ForeignKey(Cause, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return self.title
