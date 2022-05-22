@@ -22,7 +22,7 @@
                     <h3>{{cause.title}}</h3>
                     <p>{{cause.description|truncatechars:420}}</p>
                     <div class="d-flex">
-                        <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'cause:Detail' %}')">Edit</button>
+                        <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'user:EditCause' cause.id %}')">Edit</button>
                         <button class="btn btn-info text-white px-4">Delete</button>
                     </div>
                 </div>
@@ -43,6 +43,7 @@
     <script>
         $(document).ready(()=>{
             $("#managecauses").toggleClass("active");
+    
         });
     </script>
 
