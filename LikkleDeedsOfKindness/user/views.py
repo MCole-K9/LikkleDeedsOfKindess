@@ -13,7 +13,13 @@ def volunteers(request):
     return render(request, "Volunteers.html", {})
 
 def manage_causes(request):
-    return render(request, "ManageCauses.html", {})
+
+    causes = Cause.objects.all()
+    context = {
+        "causes": causes,
+    }
+
+    return render(request, "ManageCauses.html", context)
 
 def add_cause(request):
 
