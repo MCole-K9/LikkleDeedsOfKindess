@@ -3,7 +3,7 @@ body{
     padding: 0;
 }
 #home-header{
-    background-image: url("../images/pexels-ron-lach-9169661.jpg");
+    background-image: url("../media/images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -38,7 +38,7 @@ nav li a{
 
 #cause-header, #gallery-header, #about-header, #cause-detail-header, #project-header, #donate-header{
 
-    background-image: url("../images/pexels-ron-lach-9169661.jpg");
+    background-image: url("../media/images/pexels-ron-lach-9169661.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 45vh;
