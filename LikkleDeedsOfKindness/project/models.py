@@ -14,5 +14,9 @@ class Project(models.Model):
 
 class ProjectImages(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="static/images")
+    image = models.ImageField(upload_to="images/")
     caption = models.CharField(max_length=225)
+
+class ProjectVideos(models.Model):
+    video_link = models.CharField(max_length=225)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
