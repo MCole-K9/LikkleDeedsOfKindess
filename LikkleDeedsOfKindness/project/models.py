@@ -12,11 +12,11 @@ class Project(models.Model):
     cause = models.ForeignKey(Cause, on_delete=models.CASCADE)
 
 
-class ProjectImages(models.Model):
+class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="images/")
     caption = models.CharField(max_length=225)
 
-class ProjectVideos(models.Model):
+class ProjectVideo(models.Model):
     video_link = models.CharField(max_length=225)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
