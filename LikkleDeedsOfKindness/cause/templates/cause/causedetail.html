@@ -16,16 +16,16 @@
 <main class="container-fluid">
     <section class="row px-5 mt-5">
         <div id="detail" class="col-12 col-lg-8">
-            <h3 class="mb-3">Cause Title</h3>
-            <img class="img-fluid rounded mb-3" src="{% static '/images/pexels-lagos-food-bank-initiative-8060428.jpg' %}" alt="">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas dignissimos veniam eius labore similique consequatur magni, ipsum odio sed eveniet officia beatae aspernatur atque, voluptatibus autem reprehenderit accusamus soluta quidem!</p>
+            <h3 class="mb-3">{{cause.title}}</h3>
+            <img class="img-fluid rounded mb-3" src="{{cause.image.url}}" alt="">
+            <p>{{cause.description}}</p>
             <button class="btn btn-info px-5 py-2 mb-3">Donate</button>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique architecto odit temporibus eaque libero, voluptatibus quod ratione inventore distinctio, suscipit earum? Veniam porro illo odit perspiciatis velit, ratione dolorum aspernatur.</p>
+            <p>{{cause.content}}</p>
         </div>
         <div  class="col-12 col-lg-4">
             
-        </div>
-        <div id="projects" class="col">
+        </div> 
+        <div id="projects" class="col my-2">
             <h3>Projects</h3>
             {% include "component/seperator.html" %}
             <div class="row gy-4">

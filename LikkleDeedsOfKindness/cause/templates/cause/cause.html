@@ -17,48 +17,27 @@
 <main class="container-fluid">
     <section class="row px-5 gx-5 gy-0 mt-5">
         <div id="causes" class="col-12 col-lg-8">
-            <div class="row">
+            {% for cause in causes %}
+            <div class="row my-2">
                 <div class="col-12 col-lg-5">
-                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+                    <div class="ratio ratio-16x9">
+                        <img class="img-fluid rounded" src="{{cause.image.url}}" alt="">
+                    </div>
+                    
                 </div>
                 <div class="col-12 col-lg-7">
-                    <h3>Help Some Cause</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
+                    <h3>{{cause.title}}</h3>
+                    <p>{{cause.description|truncatechars:420}}</p>
                     <div class="d-flex">
-                        <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'cause:Detail' %}')">View</button>
+                        <button class="btn btn-outline-info px-4 me-4" onclick="goToLocation('{% url 'cause:Detail' cause.id%}')">View</button>
                         <button class="btn btn-info text-white px-4">Donate</button>
                     </div>
                 </div>
             </div>
-            <hr class="my-5">
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
-                </div>
-                <div class="col-12 col-lg-7">
-                    <h3>Help Some Cause</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-info px-4 me-4">View</button>
-                        <button class="btn btn-info text-white px-4">Donate</button>
-                    </div>
-                </div>
-                <hr class="my-5">
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
-                </div>
-                <div class="col-12 col-lg-7">
-                    <h3>Help Some Cause</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odit quos, eveniet pariatur qui, dolor doloribus ducimus eum nobis nesciunt repellat tempora voluptate magni, aperiam incidunt cupiditate aliquid aliquam. Incidunt!</p>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-info px-4 me-4">View</button>
-                        <button class="btn btn-info text-white px-4">Donate</button>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-5">
+            {%empty%}
+            <h3>Nothing Yet.</h3>
+        {% endfor %}
+            
         </div>
         <div id="cause-category" class="col-12 col-lg-4">
             <h3>Cause Categories</h3>
