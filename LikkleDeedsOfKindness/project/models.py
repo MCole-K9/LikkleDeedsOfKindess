@@ -1,6 +1,6 @@
 from django.db import models
 from cause.models import Cause
-import random
+import random, re
 # Create your models here.
 
 
@@ -23,7 +23,23 @@ class Project(models.Model):
 
     def get_images(self):
         return ProjectImage.objects.filter(project=self.id)
+    
+    def get_embed_link(self) -> str:
+        """Transforms the the video link to an acceptable format form an embed video link for the respective hosts"""
         
+        if re.search("youtube.com", self.video_link): 
+            url_parts = re.split("//", self.video_link)
+
+            yt_link = url_parts[1]
+            yt_link_parts = re.split("/", yt_link)
+            yt_link_parts.insert(1, "embed")
+            yt_link = "/".join(yt_link_parts) 
+
+            url_parts[1] = yt_link
+
+            embed_url = "//".join(url_parts)
+            return embed_url
+
     
 
 class ProjectImage(models.Model):
