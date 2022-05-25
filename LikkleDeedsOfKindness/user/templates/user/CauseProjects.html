@@ -10,19 +10,24 @@
         </div>
         <hr>
         <div class="row gy-4">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img class="card-img-top img-fluid rounded" src="{%static 'media/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Project title</h5>
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum aut quaerat culpa nulla ab magnam non illum ut reiciendis laudantium assumenda odit dicta alias quia</p>
-                        <div class="d-flex justify-content-evenly">
-                            <button class="btn btn-outline-info px-4" onclick="goToLocation('')">Edit</button>
-                            <button class="btn btn-outline-info px-4" onclick="goToLocation('')">Delete</button>
+            {% for project in projects %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img style="object-fit: cover; max-height: 200px;" class="card-img-top img-fluid rounded" src="{{project.get_image.image.url}}" alt="">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{project.title}}</h5>
+                            <p class="card-text">{{project.description|truncatechars:150}}</p>
+                            <div class="d-flex justify-content-evenly">
+                                <button class="btn btn-outline-info px-4" onclick="goToLocation('')">Edit</button>
+                                <button class="btn btn-outline-info px-4" onclick="goToLocation('')">Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                {%empty%}
+                <h4 class="h4 m-3">Nothing yet. Add Project To get Started</h4>
+            {% endfor %}
+            
             
         </div>
         
