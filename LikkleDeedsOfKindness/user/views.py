@@ -1,8 +1,9 @@
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from cause.models import Cause
+from project.models import Project, ProjectImage
 
 # Create your views here.
 
@@ -60,3 +61,49 @@ def edit_cause(request, id):
         }
         return render(request, "AddCause.html", context)
 
+def cause_projects(request, id):
+    
+    projects = Project.objects.filter(cause=id)
+    
+    context = {
+        "projects" : projects,
+        "cause": id,
+    }
+
+    return render(request, "CauseProjects.html", context)
+
+def add_project(request, cause_id):
+
+    if request.method == "POST":
+
+        project:Project = Project()
+
+        cause:Cause = Cause.objects.get(pk=cause_id)
+        PostData =  request.POST
+
+        project.cause = cause
+        project.title = PostData["title"]
+        project.description = PostData["description"]
+        project.video_link = PostData["video_link"]
+        project.content = PostData["body"]          
+
+        project.save()
+
+       
+    
+        images = request.FILES.getlist("project_images")
+        if request.FILES:
+            for index, image in enumerate(images):
+                project_image:ProjectImage = ProjectImage()
+                project_image.project = project
+                project_image.image = image
+                project_image.caption  = PostData[f"caption{index}"]
+                project_image.save()
+
+        return redirect(reverse("user:CauseProjects", args=[cause_id]))
+
+
+
+
+        
+    return render(request, "AddProject.html", {"cause_id": cause_id})
