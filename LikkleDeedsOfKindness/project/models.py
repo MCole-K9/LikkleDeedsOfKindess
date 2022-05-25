@@ -1,7 +1,6 @@
-from email.mime import image
 from django.db import models
 from cause.models import Cause
-
+import random
 # Create your models here.
 
 
@@ -11,9 +10,17 @@ class Project(models.Model):
     content = models.TextField()
     cause = models.ForeignKey(Cause, on_delete=models.CASCADE)
     video_link = models.CharField(max_length=225, default="none")
+    display_image = models.ImageField(upload_to="images/" , default="none")
 
     def __str__(self):
         return self.title
+
+    def get_image(self):
+        """"Return a Random project image(model)"""
+        project_images = ProjectImage.objects.filter(project=self.id)
+        project_image = random.choice(project_images)
+        return project_image
+        
     
 
 class ProjectImage(models.Model):
