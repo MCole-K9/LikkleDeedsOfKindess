@@ -1,4 +1,3 @@
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -63,11 +62,12 @@ def edit_cause(request, id):
 
 def cause_projects(request, id):
     
-    projects = Project.objects.filter(cause=id)
-    
+    projects =  Project.objects.filter(cause=id) 
+
     context = {
         "projects" : projects,
         "cause": id,
+        
     }
 
     return render(request, "CauseProjects.html", context)
@@ -90,7 +90,7 @@ def add_project(request, cause_id):
         project.save()
 
        
-    
+
         images = request.FILES.getlist("project_images")
         if request.FILES:
             for index, image in enumerate(images):
