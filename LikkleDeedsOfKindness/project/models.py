@@ -20,6 +20,9 @@ class Project(models.Model):
         project_images = ProjectImage.objects.filter(project=self.id)
         project_image = random.choice(project_images)
         return project_image
+
+    def get_images(self):
+        return ProjectImage.objects.filter(project=self.id)
         
     
 
