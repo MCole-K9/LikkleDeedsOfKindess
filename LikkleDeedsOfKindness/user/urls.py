@@ -11,6 +11,8 @@ urlpatterns = [
     path("AddCause", views.add_cause, name="AddCause"),
     path("EditCause/<int:id>", views.edit_cause, name="EditCause"),
     path("CauseProjects/<int:id>", views.cause_projects, name="CauseProjects"),
-    path("AddProject/<int:cause_id>", views.add_project, name="AddProject")
+    path("AddProject/<int:cause_id>", views.add_project, name="AddProject"),
+    path("ProjectImages/<int:id>", views.project_images, name="ProjectImages"),
+    path("EditImage/<int:id>", views.edit_image, name="EditImage"),
 
 ]

@@ -102,8 +102,32 @@ def add_project(request, cause_id):
 
         return redirect(reverse("user:CauseProjects", args=[cause_id]))
 
-
-
-
-        
     return render(request, "AddProject.html", {"cause_id": cause_id})
+
+def project_images(request, id):
+
+    images = ProjectImage.objects.filter(project=id)
+    
+    context = {
+        "images": images
+    }
+    return render(request, "ProjectImages.html", context)
+
+def edit_image(request, id):
+
+    if request.method == "POST":
+        project_image:ProjectImage = ProjectImage.objects.get(pk=id)
+
+        project_image.caption = request.POST["caption"]
+
+        if request.FILES:
+            project_image.image = request.FILES["image"]
+        
+        project_image.save()
+
+    return redirect(reverse("user:ProjectImages", args=[project_image.project.pk]))
+    
+
+
+
+
