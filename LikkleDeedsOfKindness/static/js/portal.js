@@ -51,3 +51,17 @@ function addCaption(){
 
     });
 }
+function handleEditClick(imageUrl, imgCaption, postURL){
+    
+
+    img = document.getElementById("imgEdit");
+    img.setAttribute("src", imageUrl);
+
+    $("#caption").val(imgCaption)
+    
+    imgForm = document.getElementById("imgForm");
+    imgForm.setAttribute("action", postURL);
+    
+   
+
+}
