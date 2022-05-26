@@ -13,7 +13,9 @@
             {% for project in projects %}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
-                        <img style="object-fit: cover; max-height: 200px;" class="card-img-top img-fluid rounded" src="{{project.get_image.image.url}}" alt="">
+                        <div class="ratio ratio-16x9">
+                            <img  class="card-img-top img-fluid rounded" src="{{project.get_image.image.url}}" alt="">
+                        </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{project.title}}</h5>
                             <p class="card-text">{{project.description|truncatechars:150}}</p>
