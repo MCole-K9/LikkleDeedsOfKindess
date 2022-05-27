@@ -22,7 +22,7 @@
                             <div class="d-flex justify-content-evenly">
                                 <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'user:EditProject' project.id %}')">Edit</button>
                                 <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'user:ProjectImages' project.id%}')">Images</button>
-                                <button class="btn btn-danger px-4" onclick="goToLocation('')">Delete</button>
+                                <button class="btn btn-danger px-4" onclick="handleDelete('{% url 'user:DeleteProject' project.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>
                             </div>
                         </div>
                     </div>

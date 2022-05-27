@@ -134,6 +134,16 @@ def edit_project(request, id):
 
     return render(request, "AddProject.html", {"project": project})
 
+def delete_project(request, id):
+
+    project:Project = Project.objects.get(pk=id)
+
+    cause_id = project.cause.pk
+
+    project.delete()
+
+    return redirect(reverse("user:CauseProjects", args=[cause_id]))
+
 
 def project_images(request, id):
 
@@ -143,6 +153,7 @@ def project_images(request, id):
         "images": images
     }
     return render(request, "ProjectImages.html", context)
+    
 
 def add_image(request, project_id):
 
