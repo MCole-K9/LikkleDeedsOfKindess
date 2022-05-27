@@ -62,6 +62,36 @@ function handleEditClick(imageUrl, imgCaption, postURL){
     imgForm = document.getElementById("imgForm");
     imgForm.setAttribute("action", postURL);
     
-   
+}
 
+function handleAddClick(postURL){
+    //If img was an image was edited then the image will still be visible in the modal
+    img = document.getElementById("imgEdit");
+    img.setAttribute("src", "");
+
+    imgForm = document.getElementById("imgForm");
+    imgForm.setAttribute("action", postURL);
+    
+}
+
+$("#file_input").on("change", (event)=>{
+
+    
+    let img = document.getElementById("imgEdit");
+
+    let files = event.target.files;
+
+    let fileReader = new FileReader();
+
+    fileReader.onload = ()=>{
+        
+        img.setAttribute("src", fileReader.result);
+        
+    };
+    fileReader.readAsDataURL(files[0]);
+});
+
+function handleDelete(requestUrl){
+
+    document.getElementById("delete_link").setAttribute("href", requestUrl);
 }
