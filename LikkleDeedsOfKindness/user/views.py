@@ -104,6 +104,35 @@ def add_project(request, cause_id):
 
     return render(request, "AddProject.html", {"cause_id": cause_id})
 
+def edit_project(request, id):
+
+    project:Project = Project.objects.get(pk=id)
+
+    if request.method == "POST":
+
+        PostData =  request.POST
+
+        project.title = PostData["title"]
+        project.description = PostData["description"]
+        project.video_link = PostData["video_link"]
+        project.content = PostData["body"]          
+
+        project.save()
+
+        images = request.FILES.getlist("project_images")
+        if request.FILES:
+            for index, image in enumerate(images):
+                project_image:ProjectImage = ProjectImage()
+                project_image.project = project
+                project_image.image = image
+                project_image.caption  = PostData[f"caption{index}"]
+                project_image.save()
+
+        return redirect(reverse("user:CauseProjects", args=[project.cause.pk]))
+
+    return render(request, "AddProject.html", {"project": project})
+
+
 def project_images(request, id):
 
     images = ProjectImage.objects.filter(project=id)

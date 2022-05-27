@@ -20,7 +20,7 @@
                             <h5 class="card-title">{{project.title}}</h5>
                             <p class="card-text">{{project.description|truncatechars:150}}</p>
                             <div class="d-flex justify-content-evenly">
-                                <button class="btn btn-info text-white px-4" onclick="goToLocation('')">Edit</button>
+                                <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'user:EditProject' project.id %}')">Edit</button>
                                 <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'user:ProjectImages' project.id%}')">Images</button>
                                 <button class="btn btn-danger px-4" onclick="goToLocation('')">Delete</button>
                             </div>

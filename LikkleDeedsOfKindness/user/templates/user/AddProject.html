@@ -6,24 +6,24 @@
     
     <div class="container-fluid">
         {% comment %} if cause in context exists then update {% endcomment %}
-        <form method="POST" action="{% url 'user:AddProject' cause_id %}"   encType="multipart/form-data" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
+        <form method="POST" action="{% if project %} {% url 'user:EditProject' project.id %} {% else %}{% url 'user:AddProject' cause_id %}{% endif %} "   encType="multipart/form-data" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
             {% csrf_token %}
             <div class="row gy-2">
                 <div class="col-12">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                    <input type="text" class="form-control" name="title" {% if project %}value="{{project.title}}" {% endif %} id="title" placeholder="Title">
                 </div>
                 <div class="col-12 ">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" name="description" id="description" placeholder="A Brief Description" rows="4"></textarea>
+                    <textarea class="form-control" name="description" id="description" placeholder="A Brief Description" rows="4">{% if project %}{{project.description}} {% endif %}</textarea>
                 </div>
                 <div class="col-12">
                     <label for="body" class="form-label">Body/Content</label>
-                    <textarea class="form-control" name="body" id="body" placeholder="Body/Content" rows="8"></textarea>
+                    <textarea class="form-control" name="body" id="body" placeholder="Body/Content" rows="8">{% if project %}{{project.content}} {% endif %}</textarea>
                 </div>
                 <div class="col-12">
                     <label for="title" class="form-label">Video Link</label>
-                    <input type="text" class="form-control" name="video_link" id="video_link" placeholder="Eg: https://www.youtube.com/watch?v=qpxi-fKffB4">
+                    <input type="text" class="form-control" name="video_link" {% if project %}value="{{project.video_link}}"{% endif %}  id="video_link" placeholder="Eg: https://www.youtube.com/watch?v=qpxi-fKffB4">
                 </div>
                 <div class="col-12">
                     <label for="project_images" class="form-label">Project Images</label>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-3">
-                <input class="btn btn-primary px-5" type="Submit" Value="Add">
+                <input class="btn btn-primary px-5" type="Submit" Value="{% if project %}Save Changes{% else %}Add{% endif %} ">
             </div>
             
         </form>

@@ -12,6 +12,7 @@ urlpatterns = [
     path("EditCause/<int:id>", views.edit_cause, name="EditCause"),
     path("CauseProjects/<int:id>", views.cause_projects, name="CauseProjects"),
     path("AddProject/<int:cause_id>", views.add_project, name="AddProject"),
+    path("EditProject/<int:id>", views.edit_project, name="EditProject"),
     path("ProjectImages/<int:id>", views.project_images, name="ProjectImages"),
     path("EditImage/<int:id>", views.edit_image, name="EditImage"),
 
