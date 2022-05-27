@@ -104,6 +104,8 @@ def add_project(request, cause_id):
 
     return render(request, "AddProject.html", {"cause_id": cause_id})
 
+
+
 def edit_project(request, id):
 
     project:Project = Project.objects.get(pk=id)
@@ -142,6 +144,26 @@ def project_images(request, id):
     }
     return render(request, "ProjectImages.html", context)
 
+def add_image(request, project_id):
+
+    project = Project.objects.get(pk=project_id)
+
+    if request.method == "POST":
+
+        project_image:ProjectImage = ProjectImage()
+        
+        project_image.project = project
+
+        project_image.caption = request.POST["caption"]
+
+        if request.FILES:
+            project_image.image = request.FILES["image"]
+        
+        project_image.save()
+
+    return redirect(reverse("user:ProjectImages", args=[project_id]))
+
+
 def edit_image(request, id):
 
     if request.method == "POST":
@@ -156,6 +178,17 @@ def edit_image(request, id):
 
     return redirect(reverse("user:ProjectImages", args=[project_image.project.pk]))
     
+
+
+def delete_image(request, id):
+
+    project_image:ProjectImage = ProjectImage.objects.get(pk=id)
+
+    project_id = project_image.project.pk
+
+    project_image.delete()
+
+    return redirect(reverse("user:ProjectImages", args=[project_id]))
 
 
 

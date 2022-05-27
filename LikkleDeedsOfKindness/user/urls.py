@@ -14,6 +14,9 @@ urlpatterns = [
     path("AddProject/<int:cause_id>", views.add_project, name="AddProject"),
     path("EditProject/<int:id>", views.edit_project, name="EditProject"),
     path("ProjectImages/<int:id>", views.project_images, name="ProjectImages"),
+    path("AddImage/<int:project_id>", views.add_image, name="AddImage"),
     path("EditImage/<int:id>", views.edit_image, name="EditImage"),
+    path("DeleteImage/<int:id>", views.delete_image, name="DeleteImage"),
+
 
 ]
