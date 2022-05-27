@@ -60,6 +60,16 @@ def edit_cause(request, id):
         }
         return render(request, "AddCause.html", context)
 
+
+def delete_cause(request, id):
+
+    cause:Cause = Cause.objects.get(pk=id)
+    cause.delete()
+
+    return redirect(reverse("user:ManageCauses"))
+
+
+
 def cause_projects(request, id):
     
     projects =  Project.objects.filter(cause=id) 
@@ -153,7 +163,7 @@ def project_images(request, id):
         "images": images
     }
     return render(request, "ProjectImages.html", context)
-    
+
 
 def add_image(request, project_id):
 

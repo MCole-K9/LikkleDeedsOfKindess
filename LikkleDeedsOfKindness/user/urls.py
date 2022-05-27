@@ -10,6 +10,7 @@ urlpatterns = [
     path("ManageCauses", views.manage_causes, name="ManageCauses"),
     path("AddCause", views.add_cause, name="AddCause"),
     path("EditCause/<int:id>", views.edit_cause, name="EditCause"),
+    path("DeleteCause/<int:id>", views.delete_cause, name="DeleteCause"),
     path("CauseProjects/<int:id>", views.cause_projects, name="CauseProjects"),
     path("AddProject/<int:cause_id>", views.add_project, name="AddProject"),
     path("EditProject/<int:id>", views.edit_project, name="EditProject"),
