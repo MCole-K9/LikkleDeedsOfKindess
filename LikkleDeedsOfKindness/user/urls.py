@@ -19,6 +19,7 @@ urlpatterns = [
     path("AddImage/<int:project_id>", views.add_image, name="AddImage"),
     path("EditImage/<int:id>", views.edit_image, name="EditImage"),
     path("DeleteImage/<int:id>", views.delete_image, name="DeleteImage"),
-
+    path("ManageEvents", views.manage_events, name="ManageEvents"),
+    path("ManageEvents/AddEvent", views.add_event, name="AddEvent")
 
 ]

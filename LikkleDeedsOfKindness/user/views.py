@@ -1,7 +1,8 @@
+import datetime
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from cause.models import Cause
+from cause.models import Cause, Event
 from project.models import Project, ProjectImage
 
 # Create your views here.
@@ -214,3 +215,39 @@ def delete_image(request, id):
 
 
 
+def manage_events(request):
+
+    events = Event.objects.all()
+    context = {
+        "events": events
+    }
+    return render(request, "ManageEvents.html", context)
+
+def add_event(request):
+
+    if request.method == "POST":
+        event:Event = Event()
+        event.title = request.POST["title"]
+        event.description = request.POST["description"]
+        event.city = request.POST["city"]
+        event.street = request.POST["street_address"]
+        event.parish = request.POST["parish"]
+
+        post_date:str = request.POST["date"]
+        date_parts = post_date.split("-")
+        date_parts = [int(element) for element in date_parts]
+
+        post_time:str = request.POST["time"]
+        time_parts = post_time.split(":")
+        time_parts = [int(element) for element in time_parts]
+
+        
+
+        event.date = datetime.datetime(date_parts[0], date_parts[1], date_parts[2], time_parts[0], time_parts[1])
+        event.save()
+
+        #cause from event model is null
+        
+        return redirect(reverse("user:ManageEvents"))
+
+    return render(request, "AddEvent.html", {})
