@@ -8,7 +8,7 @@ from project.models import ProjectImage
 def index(request):
 
     causes = Cause.objects.all()[:4]
-
+    events = Event.objects.all()
 
     
     
@@ -16,7 +16,8 @@ def index(request):
     project_images = ProjectImage.objects.all()[:6:-1]
     context = {
         "causes": causes,
-        "images": project_images
+        "images": project_images,
+        "events" : events
     }
 
     return render(request, "index.html", context)   
