@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Cause
+from django.shortcuts import get_object_or_404, render
+from .models import Cause, Event
 from project.models import Project
 
 # Create your views here.
@@ -15,6 +15,14 @@ def cause(request):
 
 def events(request):
     return render(request, "events.html", {}) 
+
+def event_detail(request, id):
+    
+    event = get_object_or_404(Event, pk=id)
+    context = {
+        "event": event
+    }
+    return render(request, "eventdetail.html", context)
 
 def cause_detail(request, id):
 
