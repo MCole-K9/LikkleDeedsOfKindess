@@ -5,5 +5,5 @@ app_name = "volunteer"
 
 urlpatterns = [
     path("", views.volunteer, name="Volunteer"),
-    #path("/Form", views.volunteer_form, name="Volunteer Form")
+    path("EventVolunteer/<int:event_id>", views.event_volunteer, name="EventVolunteer"),
 ]
