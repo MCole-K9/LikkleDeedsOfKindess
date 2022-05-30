@@ -98,3 +98,8 @@ payWithCardBtn.addEventListener("click", ()=>{
     document.getElementById("donatebtn").classList.remove("d-none");
     
 });
+
+function handleVolunteers(postUrl){
+
+    document.getElementById("volunteer_form").setAttribute("action", postUrl)
+}

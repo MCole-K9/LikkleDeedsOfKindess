@@ -24,6 +24,10 @@
                                     <td>{{event_volunteer.volunteer.phone_number}}</td>
                                     <td>{{event_volunteer.event}}</td>
                                 </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -42,11 +46,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Matthew Cole</td>
-                                <td>m.b.cole300@gmail.com</td>
-                                <td>(876)820-2204</td> 
-                            </tr>
+                            {% for volunteer in general_volunteers %}
+                                <tr>
+                                    <td>{{volunteer.volunteer}}</td>
+                                    <td>{{volunteer.volunteer.email}}</td>
+                                    <td>{{volunteer.volunteer.phone_number}}</td>
+                                </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -63,12 +73,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Matthew Cole</td>
-                                <td>m.b.cole300@gmail.com</td>
-                                <td>(876)820-2204</td>
-                                
-                            </tr>
+                            {% for volunteer in admin_volunteers %}
+                                <tr>
+                                    <td>{{volunteer.volunteer}}</td>
+                                    <td>{{volunteer.volunteer.email}}</td>
+                                    <td>{{volunteer.volunteer.phone_number}}</td>
+                                </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

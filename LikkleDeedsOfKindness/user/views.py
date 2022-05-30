@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from cause.models import Cause, Event
 from project.models import Project, ProjectImage
-from volunteer.models import EventVolunteer
+from volunteer.models import EventVolunteer, AdminVolunteer, GeneralVolunteer
 
 # Create your views here.
 
@@ -15,10 +15,16 @@ def dashboard(request):
 def volunteers(request):
     now = datetime.datetime.now()
     str_now = now.strftime("%Y-%m-%d %H:%M")
-    print(str_now)
+    
     event_volunteers = EventVolunteer.objects.filter(event__date__gte=str_now)
+
+    admin_volunteers = AdminVolunteer.objects.all()
+    general_volunteers = GeneralVolunteer.objects.all()
+
     context = {
-        "event_volunteers":  event_volunteers
+        "event_volunteers":  event_volunteers,
+        "admin_volunteers": admin_volunteers,
+        "general_volunteers": general_volunteers
     }
     return render(request, "Volunteers.html", context)
 
