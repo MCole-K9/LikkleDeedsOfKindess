@@ -8,6 +8,10 @@ class Volunteer(models.Model):
     email = models.EmailField(max_length=60)
     phone_number = models.CharField(max_length=20)
 
+    def __str__(self) -> str:
+        return f"{self.first_name } {self.last_name}" 
+
+
 class GeneralVolunteer(models.Model):
     volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE)
 

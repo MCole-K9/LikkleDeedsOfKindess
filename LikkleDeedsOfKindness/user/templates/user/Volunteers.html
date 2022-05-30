@@ -17,13 +17,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Matthew Cole</td>
-                                <td>m.b.cole300@gmail.com</td>
-                                <td>(876)820-2204</td>
-                                <td>Beach Clean Up</td>
-                                
-                            </tr>
+                            {% for event_volunteer in event_volunteers %}
+                                <tr>
+                                    <td>{{event_volunteer.volunteer}}</td>
+                                    <td>{{event_volunteer.volunteer.email}}</td>
+                                    <td>{{event_volunteer.volunteer.phone_number}}</td>
+                                    <td>{{event_volunteer.event}}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

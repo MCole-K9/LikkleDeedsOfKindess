@@ -1,9 +1,11 @@
 import datetime
+from time import strftime
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from cause.models import Cause, Event
 from project.models import Project, ProjectImage
+from volunteer.models import EventVolunteer
 
 # Create your views here.
 
@@ -11,7 +13,14 @@ def dashboard(request):
     return render(request, "Dashboard.html", {})
 
 def volunteers(request):
-    return render(request, "Volunteers.html", {})
+    now = datetime.datetime.now()
+    str_now = now.strftime("%Y-%m-%d %H:%M")
+    print(str_now)
+    event_volunteers = EventVolunteer.objects.filter(event__date__gte=str_now)
+    context = {
+        "event_volunteers":  event_volunteers
+    }
+    return render(request, "Volunteers.html", context)
 
 def manage_causes(request):
 
