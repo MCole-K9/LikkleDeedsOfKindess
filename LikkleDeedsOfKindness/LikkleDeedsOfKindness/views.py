@@ -31,7 +31,7 @@ def about(request):
     return render(request, "about.html", {})
 
 def gallery(request):
-    project_images = ProjectImage.objects.all()
+    project_images = ProjectImage.objects.all()[::-1]
     context = {
         "images" : project_images
     }
