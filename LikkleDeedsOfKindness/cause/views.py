@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Cause, Event
 from project.models import Project
+import datetime
 
 # Create your views here.
 
@@ -14,7 +15,12 @@ def cause(request):
     return render(request, "cause.html", context)
 
 def events(request):
-    return render(request, "events.html", {}) 
+
+    now = datetime.datetime.now()
+    str_now = now.strftime("%Y-%m-%d %H:%M")
+    events = Event.objects.filter(date__gte=str_now)
+
+    return render(request, "events.html", {"events": events}) 
 
 def event_detail(request, id):
     

@@ -2,13 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from cause.models import Cause, Event
 from project.models import ProjectImage
+import datetime, time
 
 
 
 def index(request):
 
+    now = datetime.datetime.now()
+    str_now = now.strftime("%Y-%m-%d %H:%M")
+    
+     
     causes = Cause.objects.all()[:4]
-    events = Event.objects.all()
+    events = Event.objects.filter(date__gte=str_now)[:3]
 
     
     

@@ -15,59 +15,30 @@
     </div>
 </header>
 <main class="container-fluid">
-    <section id="upcoming-events" class="row px-5 mt-5">
-        <div class="d-flex mb-4">
-            <div class="card text-center event-date me-4 events-date-sizing" >
-                <div class="card-body text-white align-items-center pt-5 " >
-                    <h6>Mar</h6>
-                    <hr>
-                    <h6>12</h6>
-                    <!-- <h6>22</h6> -->
+    <section id="upcoming-events" class="px-5 mt-5">
+        {% for event in events %}
+        <div class="d-flex flex-wrap mb-4 ">
+            <div class="d-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                <div class="card-body  text-white   " >
+                    <span style="margin: auto">
+                        <h6>{{event.date|date:"M"}}</h6>
+                        <hr>
+                        <h6>{{event.date|date:"d"}}</h6>
+                    </span>
                 </div>
             </div>
-            <div class="flex-grow-1">
-                <p>Day , Time</p>
-                <h5>Some Beach Clean Up</h5>
-                <p class="w-75">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
-                <!-- <div class="d-flex justify-content-end">
-                    <button class="btn btn-sm btn-outline-info">View Details</button>
-                </div> -->
-            </div>
-        </div><div class="d-flex mb-4">
-            <div class="card text-center event-date me-4 events-date-sizing" >
-                <div class="card-body text-white align-items-center pt-5 " >
-                    <h6>Mar</h6>
-                    <hr>
-                    <h6>12</h6>
-                    <!-- <h6>22</h6> -->
+            <div class="flex-grow-1" style="width: 85%" >
+                <span>{{event.date|date:"l, h:i A"}}</span>
+                <h5>{{event.title}}</h5>
+                <p>{{event.description|truncatechars:160}}</p>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-info text-white" onclick="goToLocation('{% url 'cause:EventDetail' event.id %}')" >View Details</button>
                 </div>
-            </div>
-            <div class="flex-grow-1">
-                <p>Day , Time</p>
-                <h5>Some Beach Clean Up</h5>
-                <p class="w-75">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
-                <!-- <div class="d-flex justify-content-end">
-                    <button class="btn btn-sm btn-outline-info">View Details</button>
-                </div> -->
-            </div>
-        </div><div class="d-flex mb-4">
-            <div class="card text-center event-date me-4 events-date-sizing" >
-                <div class="card-body text-white align-items-center pt-5 " >
-                    <h6>Mar</h6>
-                    <hr>
-                    <h6>12</h6>
-                    <!-- <h6>22</h6> -->
-                </div>
-            </div>
-            <div class="flex-grow-1">
-                <p>Day , Time</p>
-                <h5>Some Beach Clean Up</h5>
-                <p class="w-75">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum voluptas pariatur maiores, praesentium assumenda error cumque dolorum recusandae nihil eos in similique tempora porro vitae necessitatibus omnis, rem illo veritatis.</p>
-                <!-- <div class="d-flex justify-content-end">
-                    <button class="btn btn-sm btn-outline-info">View Details</button>
-                </div> -->
             </div>
         </div>
+        {%empty%}
+        <h4>Nothig yet. Events coming soon!</h4>
+    {% endfor %}
     </section>
 </main>
 
