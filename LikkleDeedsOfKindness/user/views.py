@@ -1,7 +1,7 @@
 import datetime
 from time import strftime
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from cause.models import Cause, Event
 from project.models import Project, ProjectImage
@@ -266,3 +266,46 @@ def add_event(request):
         return redirect(reverse("user:ManageEvents"))
 
     return render(request, "AddEvent.html", {})
+
+
+def edit_event(request, id):
+
+    event:Event = get_object_or_404(Event, pk=id)
+
+    if request.method == "POST":
+        
+        event.title = request.POST["title"]
+        event.description = request.POST["description"]
+        event.city = request.POST["city"]
+        event.street = request.POST["street_address"]
+        event.parish = request.POST["parish"]
+
+        post_date:str = request.POST["date"]
+        date_parts = post_date.split("-")
+        date_parts = [int(element) for element in date_parts]
+
+        post_time:str = request.POST["time"]
+        time_parts = post_time.split(":")
+        time_parts = [int(element) for element in time_parts]
+
+        
+
+        event.date = datetime.datetime(date_parts[0], date_parts[1], date_parts[2], time_parts[0], time_parts[1])
+        event.save()
+
+        #cause from event model is null
+        
+        return redirect(reverse("user:ManageEvents"))
+    
+    context = {
+        "event": event,
+    }
+
+    return render(request, "AddEvent.html", context)
+
+def delete_event(request, id):
+
+    event = get_object_or_404(Event, pk=id)
+    event.delete()
+
+    return redirect(reverse("user:ManageEvents"))

@@ -9,9 +9,33 @@
             <button class="btn btn-info text-white my-2" onclick="goToLocation('{% url 'user:AddEvent' %}')" >Add Event <i class="fa-solid fa-plus"></i></button>
         </div>
         <hr>
-        <div class="row gy-4">
+        <div class="">
+            {% for event in events %}
             
-            
+                <div class="d-flex flex-wrap mb-4 ">
+                    <div class="d-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                        <div class="card-body  text-white   " >
+                            <span style="margin: auto">
+                                <h6>{{event.date|date:"M"}}</h6>
+                                <hr class>
+                                <h6>{{event.date|date:"d"}}</h6>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 w-75" >
+                        <span>{{event.date|date:"l, h:i A"}}</span>
+                        <h5>{{event.title}}</h5>
+                        <p class="w-75">{{event.description|truncatechars:150}}</p>
+                        <div class="d-flex justify-content-start">
+                            <button class="btn btn-sm btn-info text-white px-3 me-2" onclick="goToLocation('{% url 'user:EditEvent' event.id %}')">Edit</button>
+                            <button class="btn btn-sm btn-danger" onclick="handleDelete('{% url 'user:DeleteEvent' event.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                {%empty%}
+                <h4>Nothing Yet. Add Event to get started</h4>
+
+            {% endfor %}
         </div>
 
         

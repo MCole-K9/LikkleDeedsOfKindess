@@ -20,6 +20,9 @@ urlpatterns = [
     path("EditImage/<int:id>", views.edit_image, name="EditImage"),
     path("DeleteImage/<int:id>", views.delete_image, name="DeleteImage"),
     path("ManageEvents", views.manage_events, name="ManageEvents"),
-    path("ManageEvents/AddEvent", views.add_event, name="AddEvent")
+    path("ManageEvents/AddEvent", views.add_event, name="AddEvent"),
+    path("ManageEvents/EditEvent/<int:id>", views.edit_event, name="EditEvent"),
+    path("ManageEvents/DeleteEvent/<int:id>", views.delete_event, name="DeleteEvent"),
+    
 
 ]
