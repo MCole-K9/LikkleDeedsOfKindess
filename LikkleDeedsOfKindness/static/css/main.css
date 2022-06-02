@@ -49,17 +49,10 @@ nav li a{
     background-color: #31A98B;
     
 }
-.events-date-sizing{
-    width: 100px;
-}
-.home-event-sizing{
-    width: 200px;
-}
+
 .amount-check-lbl{
-    padding: 8px 48px;
-}
-.amount-other-check-lbl{
-    padding: 8px 113px;
+    /* padding: 8px 48px; */
+    width: 100%;
 }
 
 .h-rule{

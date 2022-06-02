@@ -23,7 +23,6 @@ function goToLocation(url) {
 //     }
 // });
 
-// $("#collapse-other").;
 
 
 let radioBtns = document.querySelectorAll('input[type="radio"]');
@@ -38,14 +37,26 @@ radioBtns.forEach(radioBtn =>{
         
         if(radioBtn.checked && radioBtn.value == 0){
 
-            console.log(radioBtn.value);
+            //When Custom Amount is selected
+
             document.getElementById("collapse-other").classList.add("d-block");
             document.getElementById("collapse-other").classList.remove("d-none");
+
+            document.getElementById("custom-amount").addEventListener("change", (event)=>{
+
+                document.getElementById("donationAmount").innerText = event.target.value;
+
+            });
+            
+            
 
         }else{
             
             document.getElementById("collapse-other").classList.add("d-none");
             document.getElementById("collapse-other").classList.remove("d-block");
+
+            document.getElementById("donationAmount").innerText = radioBtn.value;
+            
         }
     })
 
@@ -96,6 +107,15 @@ payWithCardBtn.addEventListener("click", ()=>{
     document.getElementById("card-info").classList.remove("d-none");
 
     document.getElementById("donatebtn").classList.remove("d-none");
+    
+});
+
+
+let payWithPaypal = document.getElementById("pay-with-paypal");
+
+payWithPaypal.addEventListener("click", ()=>{
+    
+    $("#paypal-btns").toggleClass("d-none");
     
 });
 
