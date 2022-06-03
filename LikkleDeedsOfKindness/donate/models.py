@@ -8,6 +8,10 @@ class Donor(models.Model):
     email = models.EmailField(max_length=60)
     phone_number = models.CharField(max_length=20)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
+
 
 class Donation(models.Model):
     amount = models.FloatField()
@@ -15,4 +19,7 @@ class Donation(models.Model):
     cause = models.ForeignKey(Cause, on_delete=models.CASCADE, null=True)
     date = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f"{self.amount}"
+    
 
