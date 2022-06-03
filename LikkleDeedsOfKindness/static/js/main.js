@@ -104,9 +104,8 @@ let payWithCardBtn  = document.getElementById("pay-with-card");
 
 payWithCardBtn.addEventListener("click", ()=>{
     
-    document.getElementById("card-info").classList.remove("d-none");
 
-    document.getElementById("donatebtn").classList.remove("d-none");
+    $("#card-info").toggleClass("d-none");
     
 });
 
