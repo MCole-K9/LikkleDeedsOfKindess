@@ -13,7 +13,7 @@
                         <i class="fa-solid fa-sack-dollar" style="font-size: 50px"></i>
                         <div class="flex-grow-1">
                             <span class="small">Donations</span>
-                            <h4>$0.0</h4>
+                            <h4>$ {{donation_sum}}</h4>
                         </div>
                         
                     </div>
@@ -25,7 +25,7 @@
                         <i class="fa-solid fa-dollar-sign" style="font-size: 50px"></i>
                         <div class="flex-grow-1">
                             <span class="small">Donations(This Month)</span>
-                            <h4>$0.0</h4>
+                            <h4>$ {{m_donation_sum}}</h4>
                         </div>
                         
                     </div>
@@ -37,7 +37,7 @@
                         <i class="fa-solid fa-users" style="font-size: 50px"></i>
                         <div class="flex-grow-1">
                             <span class="small">Total Donors</span>
-                            <h4>0</h4>
+                            <h4>{{total_donors}}</h4>
                         </div>
                         
                     </div>
@@ -55,16 +55,21 @@
                     <th>Phone Number</th>
                     <th>Amount</th>
                     <th>Cause</th>
+                    <th>Date</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Matthew Cole</td>
-                        <td>m.b.cole300@gmail.com</td>
-                        <td>(876)820-2204</td>
-                        <td>$3004 USD</td>
-                        <td>General</td>
-                    </tr>
+                    {% for donation in donations %}
+                        <tr>
+                            <td>{{donation.donor}}</td>
+                            <td>{{donation.donor.email}}</td>
+                            <td>{{donation.donor.phone_number}}</td>
+                            <td>${{donation.amount}} USD</td>
+                            <td>{% if donation.cause %} {{donation.cause}} {% else %} General {% endif %}</td>
+                            <td>{{donation.date|date:"d/m/Y"}}</td>
+                        </tr>
+                    {% endfor %}
+                   
                 </tbody>
               </table>
         </div>

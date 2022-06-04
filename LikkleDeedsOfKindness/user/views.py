@@ -6,11 +6,35 @@ from django.urls import reverse
 from cause.models import Cause, Event
 from project.models import Project, ProjectImage
 from volunteer.models import EventVolunteer, AdminVolunteer, GeneralVolunteer
+from donate.models import Donation, Donor
 
 # Create your views here.
 
 def dashboard(request):
-    return render(request, "Dashboard.html", {})
+
+    month = datetime.datetime.now().month
+
+    donations = Donation.objects.all().order_by("date")[::-1]
+    m_donations = Donation.objects.filter(date__month=month)
+
+    donation_sum = 0 
+    m_donation_sum = 0
+
+
+    for donation in donations:
+        donation_sum += donation.amount
+
+    for donation in m_donations:
+        m_donation_sum += donation.amount
+
+    context = {
+        "donations": donations,
+        "total_donors": Donor.objects.count(),
+        "donation_sum": donation_sum,
+        "m_donation_sum": m_donation_sum,
+
+    }
+    return render(request, "Dashboard.html", context)
 
 def volunteers(request):
     now = datetime.datetime.now()
