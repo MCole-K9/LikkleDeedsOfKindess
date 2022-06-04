@@ -25,6 +25,7 @@ urlpatterns = [
     path("", views.index, name="Index"),
     path("About", views.about, name = "About"),
     path("Gallery", views.gallery, name = "Gallery"),
+    path("Login", views.login_page, name="Login"),
     path("Cause/", include("cause.urls")),
     path("Project/", include("project.urls")),
     path("Volunteer/", include("volunteer.urls")),

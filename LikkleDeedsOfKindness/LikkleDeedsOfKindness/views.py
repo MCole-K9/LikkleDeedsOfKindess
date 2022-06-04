@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.urls import reverse
 from cause.models import Cause, Event
 from project.models import ProjectImage
+from django.contrib.auth import authenticate, login, logout
 import datetime, time
 
 
@@ -36,3 +38,20 @@ def gallery(request):
         "images" : project_images
     }
     return render(request, "gallery.html", context)
+
+def login_page(request):
+    if request.user.is_authenticated:
+        return redirect("/")
+
+    if request.method == "POST":
+        username = request.POST["username"].lower()
+        password = request.POST["password"]
+        
+        user = authenticate(request, username=username, password=password)
+    
+        if user is not None:
+
+            login(request, user)
+            return redirect(reverse("user:Dashboard"))
+
+    return render(request, "login.html", {})
