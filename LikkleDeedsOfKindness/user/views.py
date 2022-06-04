@@ -7,9 +7,10 @@ from cause.models import Cause, Event
 from project.models import Project, ProjectImage
 from volunteer.models import EventVolunteer, AdminVolunteer, GeneralVolunteer
 from donate.models import Donation, Donor
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required(login_url="/Login")
 def dashboard(request):
 
     month = datetime.datetime.now().month
@@ -36,6 +37,8 @@ def dashboard(request):
     }
     return render(request, "Dashboard.html", context)
 
+
+@login_required(login_url="/Login")
 def volunteers(request):
     now = datetime.datetime.now()
     str_now = now.strftime("%Y-%m-%d %H:%M")
@@ -52,6 +55,8 @@ def volunteers(request):
     }
     return render(request, "Volunteers.html", context)
 
+
+@login_required(login_url="/Login")
 def manage_causes(request):
 
     causes = Cause.objects.all()
@@ -61,6 +66,8 @@ def manage_causes(request):
 
     return render(request, "ManageCauses.html", context)
 
+
+@login_required(login_url="/Login")
 def add_cause(request):
 
     if request.method == "POST":
@@ -76,6 +83,8 @@ def add_cause(request):
         
     return render(request, "AddCause.html", {})
 
+
+@login_required(login_url="/Login")
 def edit_cause(request, id):
 
     cause:Cause = Cause.objects.get(pk=id)
@@ -100,7 +109,7 @@ def edit_cause(request, id):
         }
         return render(request, "AddCause.html", context)
 
-
+@login_required(login_url="/Login")
 def delete_cause(request, id):
 
     cause:Cause = Cause.objects.get(pk=id)
@@ -109,7 +118,7 @@ def delete_cause(request, id):
     return redirect(reverse("user:ManageCauses"))
 
 
-
+@login_required(login_url="/Login")
 def cause_projects(request, id):
     
     projects =  Project.objects.filter(cause=id) 
@@ -122,6 +131,8 @@ def cause_projects(request, id):
 
     return render(request, "CauseProjects.html", context)
 
+
+@login_required(login_url="/Login")
 def add_project(request, cause_id):
 
     if request.method == "POST":
@@ -155,7 +166,7 @@ def add_project(request, cause_id):
     return render(request, "AddProject.html", {"cause_id": cause_id})
 
 
-
+@login_required(login_url="/Login")
 def edit_project(request, id):
 
     project:Project = Project.objects.get(pk=id)
@@ -184,6 +195,8 @@ def edit_project(request, id):
 
     return render(request, "AddProject.html", {"project": project})
 
+
+@login_required(login_url="/Login")
 def delete_project(request, id):
 
     project:Project = Project.objects.get(pk=id)
@@ -195,6 +208,7 @@ def delete_project(request, id):
     return redirect(reverse("user:CauseProjects", args=[cause_id]))
 
 
+@login_required(login_url="/Login")
 def project_images(request, id):
 
     images = ProjectImage.objects.filter(project=id)
@@ -205,6 +219,7 @@ def project_images(request, id):
     return render(request, "ProjectImages.html", context)
 
 
+@login_required(login_url="/Login")
 def add_image(request, project_id):
 
     project = Project.objects.get(pk=project_id)
@@ -225,6 +240,7 @@ def add_image(request, project_id):
     return redirect(reverse("user:ProjectImages", args=[project_id]))
 
 
+@login_required(login_url="/Login")
 def edit_image(request, id):
 
     if request.method == "POST":
@@ -241,6 +257,7 @@ def edit_image(request, id):
     
 
 
+@login_required(login_url="/Login")
 def delete_image(request, id):
 
     project_image:ProjectImage = ProjectImage.objects.get(pk=id)
@@ -253,7 +270,7 @@ def delete_image(request, id):
 
 
 
-
+@login_required(login_url="/Login")
 def manage_events(request):
 
     events = Event.objects.all()
@@ -262,6 +279,8 @@ def manage_events(request):
     }
     return render(request, "ManageEvents.html", context)
 
+
+@login_required(login_url="/Login")
 def add_event(request):
 
     if request.method == "POST":
@@ -292,6 +311,7 @@ def add_event(request):
     return render(request, "AddEvent.html", {})
 
 
+@login_required(login_url="/Login")
 def edit_event(request, id):
 
     event:Event = get_object_or_404(Event, pk=id)
@@ -327,6 +347,8 @@ def edit_event(request, id):
 
     return render(request, "AddEvent.html", context)
 
+
+@login_required(login_url="/Login")
 def delete_event(request, id):
 
     event = get_object_or_404(Event, pk=id)
