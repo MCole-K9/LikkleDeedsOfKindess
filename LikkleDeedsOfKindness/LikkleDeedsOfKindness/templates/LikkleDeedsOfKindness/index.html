@@ -6,13 +6,20 @@
 
 {%block content%}
 
+{% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        <strong>{{message}}</strong>
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
 <header id="home-header">
     {%include "component/navbar.html"%}
     <div id="call-to-action" class="px-5 ">
         <h1 class="text-white mb-4 lh-md red" >Make a difference for people who need it the most</h1>
         <button class="btn btn-info text-white py-1 px-5" onclick="goToLocation('{% url 'donate:Donate' %}')">Donate</button>
     </div>
-    
 </header>
 <main class="container-fluid">
     <section class="row text-white mb-5">
