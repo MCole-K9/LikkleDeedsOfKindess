@@ -24,6 +24,36 @@ li span{
     padding: 0;;
 }
 
+:root{
+
+    --sidebar-width: 20%;
+}
+
+
 .col-3{
-    width: 20%;
+    width: var(--sidebar-width);
+    overflow: hidden;
+    transition: width 1s;
+}
+
+.col-9{
+    width: calc(100% - var(--sidebar-width));
+
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px){
+
+    
+    
+    .col-3{
+        width: 0%; 
+        transition: width 1s;
+        
+    
+    }
+
+    .col-9{
+        width: 100%;
+    }
 }
