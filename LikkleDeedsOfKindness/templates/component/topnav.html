@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color: #31A98B">
+    <div class="container-fluid  ">
+      <a class="navbar-brand  text-white" href="{% url 'Index' %}">Likkle Deeds Of Kindess</a>
+    </div>
+    <ul class="navbar-nav ms-auto">
+      <li class="text-white">
+        <div class="dropdown dropstart">
+          <a class="btn btn-sm btn-info dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            {{request.user.first_name}} {{request.user.last_name}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'Index' %}">Home</a></li>
+            <li><a class="dropdown-item" href="{% url 'Logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
