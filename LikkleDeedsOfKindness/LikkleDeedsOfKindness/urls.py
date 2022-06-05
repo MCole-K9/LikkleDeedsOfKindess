@@ -26,6 +26,7 @@ urlpatterns = [
     path("About", views.about, name = "About"),
     path("Gallery", views.gallery, name = "Gallery"),
     path("Login", views.login_page, name="Login"),
+    path("Logout", views.logout_user, name="Logout"),
     path("Cause/", include("cause.urls")),
     path("Project/", include("project.urls")),
     path("Volunteer/", include("volunteer.urls")),

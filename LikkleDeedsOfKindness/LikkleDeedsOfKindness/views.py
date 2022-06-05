@@ -55,3 +55,8 @@ def login_page(request):
             return redirect(reverse("user:Dashboard"))
 
     return render(request, "login.html", {})
+
+def logout_user(request):
+
+    logout(request)
+    return redirect("/")
