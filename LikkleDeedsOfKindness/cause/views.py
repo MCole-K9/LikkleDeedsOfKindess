@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Cause, Event
+from .models import Cause, Event, CauseCategory
 from project.models import Project
 import datetime
 
@@ -8,10 +8,25 @@ import datetime
 def cause(request):
 
     causes = Cause.objects.all()
+    categories = CauseCategory.objects.all()
     context = {
         "causes": causes,
+        "categories": categories,
     }
 
+    return render(request, "cause.html", context)
+
+def cause_category(request, id):
+
+    # category = get_object_or_404(CauseCategory, pk=id)
+
+    causes = Cause.objects.filter(category=id)
+    
+    categories = CauseCategory.objects.all()
+    context = {
+        "causes": causes,
+        "categories": categories,
+    }
     return render(request, "cause.html", context)
 
 def events(request):

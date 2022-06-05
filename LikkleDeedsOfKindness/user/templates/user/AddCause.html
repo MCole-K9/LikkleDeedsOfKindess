@@ -22,6 +22,19 @@
                     <textarea class="form-control" name="body" id="body" placeholder="Body/Content" rows="8">{% if cause %} {{cause.content}} {% endif %}</textarea>
                 </div>
                 <div class="col-12">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-select" aria-label="Default select example">
+                        {% if cause %}
+                            <option selected value="{{cause.category.pk}}">{{cause.category}}</option>
+                            {% else %}
+                            <option selected>Select Category</option>
+                        {% endif %}
+                        {% for category in categories %}
+                            <option value="{{category.id}}">{{category}}</option>
+                        {% endfor %}
+                      </select>
+                </div>
+                <div class="col-12">
                     <label for="displayimage" class="form-label">Display Image</label>
                     <input class="form-control" name="display_image" type="file" id="displayimage">
                 </div>

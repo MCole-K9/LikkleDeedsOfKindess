@@ -43,11 +43,11 @@
             <h3>Cause Categories</h3>
             {% include "component/seperator.html" %}
             <ul class="list-unstyled">
-                <li class="mb-3">Education(0)</li>
-                <li class="mb-3">Education(0)</li>
-                <li class="mb-3">Education(0)</li>
-                <li class="mb-3">Education(0)</li>
-                <li class="mb-3">Education(0)</li>
+                {% for category in categories %}
+                    <li class="mb-3"><a class="text-decoration-none" href="{% url 'cause:Category' category.id%}">{{category}} ({{category.cause_set.count}})</a></li>
+                    {%empty%}
+                    <li>None Yet</li>
+                {% endfor %}
             </ul>
         </div>
     </section>

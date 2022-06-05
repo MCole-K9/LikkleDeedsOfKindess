@@ -3,7 +3,7 @@ from time import strftime
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from cause.models import Cause, Event
+from cause.models import Cause, Event, CauseCategory
 from project.models import Project, ProjectImage
 from volunteer.models import EventVolunteer, AdminVolunteer, GeneralVolunteer
 from donate.models import Donation, Donor
@@ -69,36 +69,48 @@ def manage_causes(request):
 
 @login_required(login_url="/Login")
 def add_cause(request):
+    categories = CauseCategory.objects.all()
 
     if request.method == "POST":
+
+        category = get_object_or_404(CauseCategory, pk=request.POST["category"])
         
         cause = Cause()
         cause.title = request.POST["title"]
         cause.description = request.POST["description"]
         cause.content = request.POST["body"]
-        cause.image = request.FILES["display_image"]
+        cause.category = category
+
+        if request.FILES:
+            cause.image = request.FILES["display_image"]
+
         cause.save()
 
         return HttpResponseRedirect(reverse("user:ManageCauses")) 
         
-    return render(request, "AddCause.html", {})
+    return render(request, "AddCause.html", {"categories": categories})
 
 
 @login_required(login_url="/Login")
 def edit_cause(request, id):
 
     cause:Cause = Cause.objects.get(pk=id)
+    categories = CauseCategory.objects.all()
 
     if request.method == "POST":
+
+        category = get_object_or_404(CauseCategory, pk=request.POST["category"])
 
         cause.title = request.POST["title"]
         cause.description = request.POST["description"]
         cause.content = request.POST["body"]
+        cause.category = category
 
         if(request.FILES):
             cause.image = request.FILES["display_image"]
 
         cause.save()
+        
 
         return HttpResponseRedirect(reverse("user:ManageCauses"))
         
@@ -106,6 +118,8 @@ def edit_cause(request, id):
 
         context = {
             "cause": cause,
+            "categories": categories,
+
         }
         return render(request, "AddCause.html", context)
 
