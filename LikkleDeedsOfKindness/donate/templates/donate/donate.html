@@ -149,10 +149,12 @@
       <div class="col-12 col-lg-5  mx-auto">
         <div class="bg-white rounded py-1 px-2 shadow-lg bg-body">
           <h5>Donate</h5>
+          {% if cause %}<h5>{{cause}}</h5>{% endif %}
         </div>
       </div>
     </div>
   </section>
+  <input id="cause" type="hidden" value="{% if cause %}{{cause.id}}{% else %}0{% endif %}" name="cause">
 </main>
 
 {%endblock%}

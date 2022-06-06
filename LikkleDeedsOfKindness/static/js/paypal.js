@@ -39,6 +39,7 @@ paypal.Buttons({
             email: document.getElementById("email-address").value,
             phoneNumber: document.getElementById("phone-number").value,
             amount: orderData.purchase_units[0].amount.value,
+            cause: document.getElementById("cause").value,
           }),
         }).then(response => response.json())
         .then(data =>{

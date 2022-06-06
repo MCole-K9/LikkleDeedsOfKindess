@@ -60,7 +60,7 @@
                             <p class="card-text">{{cause.description|truncatechars:150}}</p>
                             <div class="d-flex justify-content-evenly">
                                 <button class="btn btn-outline-info px-4" onclick="goToLocation('{% url 'cause:Detail' cause.id %}')">View</button>
-                                <button class="btn btn-info text-white px-4">Donate</button>
+                                <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'donate:DonateCause' cause.id %}')">Donate</button>
                             </div>
                         </div>
                     </div>

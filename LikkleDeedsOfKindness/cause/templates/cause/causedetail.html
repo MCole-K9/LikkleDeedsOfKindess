@@ -21,7 +21,7 @@
                 <img class="img-fluid rounded mb-3" src="{{cause.image.url}}" alt="">
             </div>
             <p>{{cause.description}}</p>
-            <button class="btn btn-info px-5 py-2 mb-3">Donate</button>
+            <button class="btn btn-info px-5 py-2 mb-3" onclick="goToLocation('{% url 'donate:DonateCause' cause.id %}')">Donate</button>
             <p>{{cause.content}}</p>
         </div>
         <div  class="col-12 col-lg-4">
