@@ -1,7 +1,7 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.urls import reverse
-from cause.models import Cause, Event
+from cause.models import Cause, Event, SuccessStory
 from project.models import ProjectImage
 from django.contrib.auth import authenticate, login, logout
 import datetime, time
@@ -17,14 +17,15 @@ def index(request):
     causes = Cause.objects.all()[:4]
     events = Event.objects.filter(date__gte=str_now)[:3]
 
-    
-    
-
     project_images = ProjectImage.objects.all()[:6:-1]
+
+    stories = SuccessStory.objects.all()
+
     context = {
         "causes": causes,
         "images": project_images,
-        "events" : events
+        "events" : events,
+        "stories": stories
     }
 
     return render(request, "index.html", context)   
@@ -56,7 +57,19 @@ def login_page(request):
 
     return render(request, "login.html", {})
 
+
 def logout_user(request):
 
     logout(request)
     return redirect("/")
+
+
+def view_story(request, id):
+
+    story = get_object_or_404(SuccessStory, pk=id)
+
+    context = {
+        "story": story
+    }
+
+    return render(request, "successstory.html", context)

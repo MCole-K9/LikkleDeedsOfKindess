@@ -1,0 +1,46 @@
+{% extends 'Portal.html' %}
+{% load static %} 
+
+{% block content %}
+
+    
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Stories</h2>
+            <button class="btn btn-info text-white my-2" onclick="goToLocation('{% url 'user:AddStory' %}')" >Add Story <i class="fa-solid fa-plus"></i></button>
+        </div>
+        <hr>
+
+        {% for story in stories %}
+            <div class="row my-2">
+                <div class="col-12 col-lg-5">
+                    <div class="ratio ratio-16x9">
+                        <img class="img-fluid rounded" src="{{story.image.url}}" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-12 col-lg-7 container-fluid">
+                    <h3>{{story.title}}</h3>
+                    <p>{{story.content|truncatechars:400}}</p>
+                    <div class="d-flex">
+                        <button class="btn btn-info px-4 text-white me-2" onclick="goToLocation('{% url 'user:EditStory' story.id %}')">Edit</button>
+                        <button class="btn btn-danger text-white px-4" onclick="handleDelete('{% url 'user:DeleteStory' story.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>
+                    </div>
+                </div>
+            </div>
+            {%empty%}
+            <h4>Nothing yet. Add Story to get started</h4>
+        {% endfor %}
+       
+    </div>
+    
+{% endblock  %}
+
+{% block script %}
+    <script>
+        $(document).ready(()=>{
+            $("#managestories").toggleClass("active");
+        });
+    </script>
+
+{% endblock%}

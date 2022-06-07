@@ -23,6 +23,12 @@ urlpatterns = [
     path("ManageEvents/AddEvent", views.add_event, name="AddEvent"),
     path("ManageEvents/EditEvent/<int:id>", views.edit_event, name="EditEvent"),
     path("ManageEvents/DeleteEvent/<int:id>", views.delete_event, name="DeleteEvent"),
+    path("ManageStories", views.manage_stories, name="ManageStories"),
+    path("ManageStories/AddStory", views.add_story, name="AddStory"),
+    path("ManageStories/EditStory/<int:id>", views.edit_story, name="EditStory"),
+    path("ManageStories/DeleteStory/<int:id>", views.delete_story, name="DeleteStory"),
+
+
     
 
 ]

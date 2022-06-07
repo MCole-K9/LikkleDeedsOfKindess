@@ -3,7 +3,7 @@ from time import strftime
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from cause.models import Cause, Event, CauseCategory
+from cause.models import Cause, Event, CauseCategory, SuccessStory
 from project.models import Project, ProjectImage
 from volunteer.models import EventVolunteer, AdminVolunteer, GeneralVolunteer
 from donate.models import Donation, Donor
@@ -369,3 +369,63 @@ def delete_event(request, id):
     event.delete()
 
     return redirect(reverse("user:ManageEvents"))
+
+
+@login_required(login_url="/Login")
+def manage_stories(request):
+    
+    stories = SuccessStory.objects.all()
+    context = {
+        "stories": stories
+    }
+
+    return render(request, "ManageStories.html", context)
+
+
+@login_required(login_url="/Login")
+def add_story(request):
+
+    if request.method == "POST":
+        story:SuccessStory = SuccessStory()
+
+        story.title = request.POST["title"]
+        story.content = request.POST["body"]
+
+        if request.FILES:
+            story.image = request.FILES["display_image"]
+
+        story.save()
+
+        return redirect(reverse("user:ManageStories"))
+
+    return render(request, "AddStory.html", {})
+
+
+@login_required(login_url="/Login")
+def edit_story(request, id):
+
+    story = get_object_or_404(SuccessStory, pk=id)
+
+    if request.method == "POST":
+
+        story.title = request.POST["title"]
+        story.content = request.POST["body"]
+
+        if request.FILES:
+            story.image = request.FILES["display_image"]
+
+        story.save()
+
+        return redirect(reverse("user:ManageStories"))
+
+    return render(request, "AddStory.html", {"story": story})
+
+
+@login_required(login_url="/Login")
+def delete_story(request, id):
+
+    story = get_object_or_404(SuccessStory, pk=id)
+
+    story.delete()
+    
+    return redirect(reverse("user:ManageStories"))

@@ -126,28 +126,35 @@
             </div>
         </div>
     </section>
-    <div class="text-center">
-        <h3 class="mb-1">Some of Our Success Stories</h3>
-    </div>
-    <section id="success-stories" class="bg-light px-5  mb-5">
-        <div id="carouselSuccessStories" class="carousel slide mt-4 py-5" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row g-0">
-                        <div class="col-12 col-lg-5">
-                            <img class="img-fluid rounded" src="{%static '/images/pexels-lagos-food-bank-initiative-8060428.jpg'%}" alt="">
+    {% if stories %}
+   
+        <div class="text-center">
+            <h3 class="mb-1">Some of Our Success Stories</h3>
+        </div>
+        <section id="success-stories" class="bg-light px-5  mb-5">
+            <div id="carouselSuccessStories" class="carousel slide mt-4 py-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for story in stories %}
+                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                            <div class="row g-0">
+                                <div class="col-12 col-lg-5">
+                                    <div class="ratio ratio-16x9">
+                                        <img class="img-fluid rounded" src="{{story.image.url}}" alt="{{story.title}}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-7 px-3 py-4 bg-white rounded">
+                                    <h4>{{story.title}}</h4>
+                                    <p class="lh-lg">{{story.content|truncatechars:400}}</p>
+                                    <button class="btn btn-outline-info" onclick="goToLocation('{% url 'SuccessStory' story.id%}')">View Full Story</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12 col-lg-7 px-3 py-4 bg-white rounded">
-                            <h4>Debra Can Now Study With Her Friends</h4>
-                            <p class="lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, consequatur veritatis. Asperiores tempore id repellendus velit iure labore saepe! Unde ab totam, deleniti harum qui illum omnis repudiandae provident laudantium.</p>
-                            <button class="btn btn-outline-info">View Full Story</button>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    
+    {% endif %}
 </main>
 
 {%endblock%}
