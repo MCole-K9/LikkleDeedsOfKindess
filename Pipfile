@@ -9,6 +9,7 @@ mysqlclient = "*"
 django-environ = "*"
 pillow = "*"
 django-cors-headers = "*"
+django-psdb-engine = "*"
 
 [dev-packages]
 
