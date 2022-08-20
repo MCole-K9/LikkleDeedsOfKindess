@@ -31,8 +31,10 @@ SECRET_KEY = 'django-insecure-d&qjtxb)^5#()ktonh!en#s+0m-9o-0wawx$%noe&ao60p1csn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+
+#CSRF_TRUSTED_ORIGINS = ["https://75b8-207-204-67-48.ngrok.io"]  for ngrok testing
 
 
 # Application definition
@@ -97,22 +99,24 @@ WSGI_APPLICATION = 'LikkleDeedsOfKindness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        "NAME": env("DATABASE_NAME"),
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-        "USER": env("DATABASE_USER"),
-        "PASSWORD": env("DATABASE_PASS"),
-    }
-}
 
-#my.cnf
-# [client]
-# database = "LikkleDeedsOfKindnessDB"
-# user = "root"
-# password = "BernRootMYSQL"
+DATABASES = {
+  'default': {
+    'ENGINE': 'django_psdb_engine',
+    'NAME': env('DB_NAME'),
+    'HOST': env('DB_HOST'),
+    'PORT': env('DB_PORT'),
+    'USER': env('DB_USER'),
+    'PASSWORD': env('DB_PASSWORD'),
+    'OPTIONS': {'ssl': {
+        'ssl-ca': env('MYSQL_ATTR_SSL_CA')}, 'charset': 'utf8mb4'}
+    
+  }
+} 
+
+
+
+
 
 
 # Password validation
