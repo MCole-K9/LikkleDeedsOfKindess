@@ -390,6 +390,7 @@ def add_story(request):
 
         story.title = request.POST["title"]
         story.content = request.POST["body"]
+        story.summery = request.POST["summery"]
 
         if request.FILES:
             story.image = request.FILES["display_image"]
@@ -410,6 +411,7 @@ def edit_story(request, id):
 
         story.title = request.POST["title"]
         story.content = request.POST["body"]
+        story.summery = request.POST["summery"]
 
         if request.FILES:
             story.image = request.FILES["display_image"]

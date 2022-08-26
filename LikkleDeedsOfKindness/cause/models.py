@@ -37,5 +37,6 @@ class Event(models.Model):
 class SuccessStory(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="images/")
+    summery = models.TextField(default="")
     content = models.TextField()
 

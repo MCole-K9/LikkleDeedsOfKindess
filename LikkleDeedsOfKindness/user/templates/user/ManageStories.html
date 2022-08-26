@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-12 col-lg-7 container-fluid">
                     <h3>{{story.title}}</h3>
-                    <p>{{story.content|truncatechars:400}}</p>
+                    <p>{{story.summery|truncatechars:400|safe}}</p>
                     <div class="d-flex">
                         <button class="btn btn-info px-4 text-white me-2" onclick="goToLocation('{% url 'user:EditStory' story.id %}')">Edit</button>
                         <button class="btn btn-danger text-white px-4" onclick="handleDelete('{% url 'user:DeleteStory' story.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>

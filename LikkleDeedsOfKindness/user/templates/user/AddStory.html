@@ -14,6 +14,10 @@
                     <input type="text" class="form-control" name="title" id="title" placeholder="Title" {% if story %}value="{{story.title}}"{% endif %}>
                 </div>
                 <div class="col-12">
+                    <label for="summery" class="form-label">Summery</label>
+                    <textarea class="form-control " name="summery" id="summery" placeholder="Summery" rows="8">{% if story %} {{story.summery}} {% endif %}</textarea>
+                </div>
+                <div class="col-12">
                     <label for="body" class="form-label">Body/Content</label>
                     <textarea class="form-control richtext" name="body" id="body" placeholder="Body/Content" rows="8">{% if story %} {{story.content}} {% endif %}</textarea>
                 </div>
