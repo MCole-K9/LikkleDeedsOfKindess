@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-12 col-lg-7">
                     <h3>{{cause.title}}</h3>
-                    <p>{{cause.description|truncatechars:420}}</p>
+                    <p>{{cause.description|truncatechars:420|safe}}</p>
                     <div class="d-flex">
                         <button class="btn btn-info px-4 text-white me-2" onclick="goToLocation('{% url 'user:EditCause' cause.id %}')">Edit</button>
                         <button class="btn btn-info text-white px-4 me-2" onclick="goToLocation('{% url 'user:CauseProjects' cause.id %}')" >Projects</button>
