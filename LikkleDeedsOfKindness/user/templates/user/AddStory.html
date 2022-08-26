@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-12">
                     <label for="body" class="form-label">Body/Content</label>
-                    <textarea class="form-control" name="body" id="body" placeholder="Body/Content" rows="8">{% if story %} {{story.content}} {% endif %}</textarea>
+                    <textarea class="form-control richtext" name="body" id="body" placeholder="Body/Content" rows="8">{% if story %} {{story.content}} {% endif %}</textarea>
                 </div>
                 </div>
                 <div class="col-12">
@@ -33,6 +33,8 @@
 {% endblock  %}
 
 {% block script %}
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{% static 'js/tinymce.js' %}"></script>
     <script>
         $(document).ready(()=>{
             $("#managestories").toggleClass("active");
