@@ -13,7 +13,7 @@
             {% for event in events %}
             
                 <div class="d-flex flex-wrap mb-4 ">
-                    <div class="d-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                    <div class="d-none d-md-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
                         <div class="card-body  text-white   " >
                             <span style="margin: auto">
                                 <h6>{{event.date|date:"M"}}</h6>
@@ -23,7 +23,8 @@
                         </div>
                     </div>
                     <div class="flex-grow-1 w-75" >
-                        <span>{{event.date|date:"l, h:i A"}}</span>
+                        <span class="d-none d-md-block">{{event.date|date:"l, h:i A"}}</span>
+                        <span class="d-block d-md-none">{{event.date|date:"l, M d, h:i A"}}</span>
                         <h5>{{event.title}}</h5>
                         <p class="w-75">{{event.description|truncatechars:150}}</p>
                         <div class="d-flex justify-content-start">
