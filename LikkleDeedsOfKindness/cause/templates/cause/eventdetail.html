@@ -15,8 +15,8 @@
     </div>
 </header>
 <main class="container-fluid">
-    <section id="event-detail" class="px-5 mt-3">
-       <div class="shadow rounded container py-5 px-5" style="width: 70%; margin: auto auto; ">
+    <section id="event-detail" class="mt-3">
+       <div class="shadow rounded container py-5 px-5" style="max-width: 1280px; margin: 0 auto; ">
             <h3>{{event.title}}</h3>
             <h5>{{event.date}}</h5>
             <p>{{event.description}}</p>
@@ -24,7 +24,7 @@
             <span class="d-block">{{event.street}}</span>
             <span class="d-block">{{event.city}}</span>
             <span class="d-block">{{event.parish}}</span>
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-center mt-2">
                 <div class="btn btn-info px-5 text-white" data-bs-toggle="modal" data-bs-target="#volunteer_modal">Volunteer</div>
             </div>
             
