@@ -10,6 +10,7 @@ django-environ = "*"
 pillow = "*"
 django-cors-headers = "*"
 django-psdb-engine = "*"
+gunicorn = "*"
 
 [dev-packages]
 
