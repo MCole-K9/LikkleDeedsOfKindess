@@ -1,1 +1,1 @@
-web: gunicorn /LikkleDeedsOfKindnes/LikkleDeedsOfKindnes.wsgi
+web: gunicorn LikkleDeedsOfKindnes.wsgi
