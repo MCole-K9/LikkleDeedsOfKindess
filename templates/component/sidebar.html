@@ -1,0 +1,47 @@
+{% load static %}
+<section id="side-bar" class="d-flex flex-column flex-shrink-0 p-3 border  bg-light sticky-top" style="max-width: 270px; height: 100vh;">
+    <ul class="nav  nav-pills flex-column mb-auto">
+        {% comment %} <li class="nav-item">
+            <a href="#" class="nav-link " >
+              
+              Home
+            </a>
+          </li> {% endcomment %}
+          <li>
+            <a id="dashboard" href="{% url 'user:Dashboard' %}" class="nav-link text-dark d-flex align-items-center" aria-current="page">
+                <img class="icon" src="{% static 'media/icons/dashboard.svg' %}" alt="icon">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a id="volunteers" href="{% url 'user:Volunteers' %}" class="nav-link text-dark d-flex align-items-center">
+              <img class="icon" src="{% static 'media/icons/group_add.svg' %}" alt="icon">
+              Volunteers
+            </a>
+          </li>
+          <li>
+            <a id="managecauses" href="{% url 'user:ManageCauses' %}" class="nav-link text-dark  d-flex align-items-center">
+              <img class="icon" src="{% static 'media/icons/handshake.svg' %}" alt="icon">
+              Manage Causes
+            </a>
+          </li>
+          <li>
+            <a id="events" href="{% url 'user:ManageEvents' %}" class="nav-link  text-dark d-flex align-items-center">
+              <img class="icon" src="{% static 'media/icons/event.svg' %}" alt="icon">
+              Manage Events
+            </a>
+          </li>
+          <li>
+            <a id="managestories" href="{% url 'user:ManageStories' %}" class="nav-link text-dark d-flex align-items-center">
+              <img class="icon" src="{% static 'media/icons/history_edu.svg' %}" alt="icon">
+              Manage Stories
+            </a>
+          </li>
+          <li>
+            <a id="profile" href="" class="nav-link text-dark d-flex align-items-center">
+              <img class="icon" src="{% static 'media/icons/manage_accounts.svg' %}" alt="icon">
+              Profile
+            </a>
+          </li>
+    </ul>
+</section>

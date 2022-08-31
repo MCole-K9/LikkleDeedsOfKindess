@@ -1,0 +1,51 @@
+{% extends 'Portal.html' %}
+{% load static %} 
+
+{% block content %}
+
+    
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Causes</h2>
+            <button class="btn btn-info text-white my-2" onclick="goToLocation('{% url 'user:AddCause' %}')">Add Cause <i class="fa-solid fa-plus"></i></button>
+        </div>
+        <hr>
+        {% for cause in causes %}
+            <div class="row my-2">
+                <div class="col-12 col-lg-5">
+                    <div class="ratio ratio-16x9">
+                        <img class="img-fluid rounded" src="{{cause.image.url}}" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-12 col-lg-7">
+                    <h3>{{cause.title}}</h3>
+                    <p>{{cause.description|truncatechars:420|safe}}</p>
+                    <div class="d-flex">
+                        <button class="btn btn-info px-4 text-white me-2" onclick="goToLocation('{% url 'user:EditCause' cause.id %}')">Edit</button>
+                        <button class="btn btn-info text-white px-4 me-2" onclick="goToLocation('{% url 'user:CauseProjects' cause.id %}')" >Projects</button>
+                        <button class="btn btn-danger text-white px-4" onclick="handleDelete('{% url 'user:DeleteCause' cause.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>
+                    </div>
+                </div>
+            </div>
+            {%empty%}
+            <h4>Nothing yet. Add Cause to get started</h4>
+        {% endfor %}
+       
+    </div>
+    
+    
+    
+
+    
+{% endblock  %}
+
+{% block script %}
+    <script>
+        $(document).ready(()=>{
+            $("#managecauses").toggleClass("active");
+    
+        });
+    </script>
+
+{% endblock%}

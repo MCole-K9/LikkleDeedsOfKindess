@@ -1,0 +1,161 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}<title>Home</title> {%endblock%}
+
+
+{%block content%}
+
+{% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        <strong>{{message}}</strong>
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+<header id="home-header">
+    {%include "component/navbar.html"%}
+    <div id="call-to-action" class="px-5 ">
+        <h1 class="text-white mb-3 lh-md" >Make a difference for people who need it the most</h1>
+        <button class="btn btn-info text-white py-1 px-5" onclick="goToLocation('{% url 'donate:Donate' %}')">Donate</button>
+    </div>
+</header>
+<main class="container-fluid">
+    <section class="row text-white mb-5">
+        <div id="donate-now" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'cause:Cause' %}')">
+            <small><p>View Our Causes</p></small>
+            <h4>Donate Now</h4>
+        </div>
+        <div id="join-us" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'volunteer:Volunteer' %}')">
+            <small><p>Become a Volunteer</p></small>
+            <h4>Join Us Now</h4>
+        </div>
+        <div id="get-involved" class="col-12 col-lg-4 text-center py-2 call-to-action" onclick="goToLocation('{% url 'cause:Events' %}')">
+            <small><p>View Our Events</p></small>
+            <h4>Get Involved</h4>
+        </div>
+    </section>
+    <div class="row px-5 mb-5">
+
+        <div class="col-12 col-lg-5">
+            <h1>Causes that need your urgent attention </h1>
+            {% include "component/seperator.html" %}
+        </div>
+        <div class="col-12 col-lg-7">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
+        </div>
+        
+    </div>
+    <section id="causes-home" class="px-5">
+        <div class="row gy-3">
+            {% for cause in causes %}
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="ratio ratio-16x9">
+                            <img class="card-img-top img-fluid rounded" src="{{cause.image.url}}" alt="">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{cause.title}}</h5>
+                            <p class="card-text">{{cause.description|truncatechars:150|safe}}</p>
+                            <div class="d-flex justify-content-evenly">
+                                <button class="btn btn-outline-info px-4" onclick="goToLocation('{% url 'cause:Detail' cause.id %}')">View</button>
+                                <button class="btn btn-info text-white px-4" onclick="goToLocation('{% url 'donate:DonateCause' cause.id %}')">Donate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%empty%}
+                <h4>Nothing Yet. We'll Add Data Soon</h4>
+            {% endfor %}
+            
+        </div> 
+    </section>
+    <section id="event-gallery" class="px-5 my-5">
+        <div class="row">
+            <div id="event" class="col-12 col-lg-6 mb-5">
+                <h3 >Upcoming Events</h3>
+                {% include "component/seperator.html" %}
+                {% for event in events %}
+                    <div class="d-flex flex-wrap mb-4 ">
+                        <div class="d-none d-md-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                            <div class="card-body  text-white   " >
+                                <span style="margin: auto">
+                                    <h6>{{event.date|date:"M"}}</h6>
+                                    <hr>
+                                    <h6>{{event.date|date:"d"}}</h6>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1" style="width: 85%" >
+                            <span class="d-none d-md-block">{{event.date|date:"l, h:i A"}}</span>
+                            <span class="d-block d-md-none">{{event.date|date:"l, M d, h:i A"}}</span>
+                            <h5>{{event.title}}</h5>
+                            <p>{{event.description|truncatechars:160}}</p>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm btn-info text-white" onclick="goToLocation('{% url 'cause:EventDetail' event.id %}')" >View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    {%empty%}
+                    <h4>Nothig yet. Events coming soon!</h4>
+                {% endfor %}
+                <div class="d-flex justify-content-end">
+                    <button  class="btn btn-outline-info" onclick="goToLocation('{% url 'cause:Events' %}')">View All</button>
+                </div> 
+            </div>
+            <div id="gallary" class="col-12 col-lg-6 mb-5" >
+                <h3>Updates from Gallary</h3>
+                {% include "component/seperator.html" %}
+                <div id="home-photos" class="row px-3 pb-3 pt-5 rounded" style="background-color: #31A98B ;">
+                    {% for image in images %}
+                        <div class="col-6">
+                            <a href="{% url 'project:Project' image.project.pk %}">
+                                <div class="ratio ratio-16x9">
+                                    <img class="figure-img img-fluid rounded" src="{{image.image.url}}" alt="{{image.caption}}">
+                                </div>
+                            </a>
+                            <figure class="figure">
+                                <figcaption class="figure-caption fw-bold text-white">{{image.caption}}</figcaption>
+                            </figure>
+                        </div>
+                        {%empty%}
+                        <h4 class="text-white">Nothing Yet. Images of Our Work Coming Soon</h4>
+                    {% endfor %}
+         
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if stories %}
+   
+        <div class="text-center">
+            <h3 class="mb-1">Some of Our Success Stories</h3>
+        </div>
+        <section id="success-stories" class="bg-light px-5  mb-5">
+            <div id="carouselSuccessStories" class="carousel slide mt-4 py-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for story in stories %}
+                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                            <div class="row g-0">
+                                <div class="col-12 col-lg-5">
+                                    <div class="ratio ratio-16x9">
+                                        <img class="img-fluid rounded" src="{{story.image.url}}" alt="{{story.title}}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-7 px-3 py-4 bg-white rounded">
+                                    <h4>{{story.title}}</h4>
+                                    <p class="lh-lg">{{story.summery|truncatechars:400}}</p>
+                                    <button class="btn btn-outline-info" onclick="goToLocation('{% url 'SuccessStory' story.id%}')">View Full Story</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    
+    {% endif %}
+</main>
+
+{%endblock%}

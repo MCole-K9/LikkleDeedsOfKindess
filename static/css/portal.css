@@ -1,0 +1,59 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+li span{
+    margin-right: 10px;
+}
+
+.card i{
+    margin: auto  20px auto auto;
+}
+
+.card-border{
+    border-left: 6px solid #31A98B;
+}
+
+.icon{
+    height: 2rem;
+    margin-right: 5px ;
+    color: white;
+}
+/* Boostrap Override */
+.container-fluid{
+    padding: 0;;
+}
+
+:root{
+
+    --sidebar-width: 20%;
+}
+
+
+.col-3{
+    width: var(--sidebar-width);
+    overflow: hidden;
+    transition: width 1s;
+}
+
+.col-9{
+    width: calc(100% - var(--sidebar-width));
+
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px){
+
+    
+    
+    .col-3{
+        width: 0%; 
+        transition: width 1s;
+        
+    
+    }
+
+    .col-9{
+        width: 100%;
+    }
+}

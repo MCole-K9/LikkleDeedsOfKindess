@@ -1,0 +1,107 @@
+{% extends 'Portal.html' %}
+{% load static %} 
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h4>Upcoming Events</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Event</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for event_volunteer in event_volunteers %}
+                                <tr>
+                                    <td>{{event_volunteer.volunteer}}</td>
+                                    <td>{{event_volunteer.volunteer.email}}</td>
+                                    <td>{{event_volunteer.volunteer.phone_number}}</td>
+                                    <td>{{event_volunteer.event}}</td>
+                                </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4>General</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                         
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for volunteer in general_volunteers %}
+                                <tr>
+                                    <td>{{volunteer.volunteer}}</td>
+                                    <td>{{volunteer.volunteer.email}}</td>
+                                    <td>{{volunteer.volunteer.phone_number}}</td>
+                                </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4>Admistrative Support</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for volunteer in admin_volunteers %}
+                                <tr>
+                                    <td>{{volunteer.volunteer}}</td>
+                                    <td>{{volunteer.volunteer.email}}</td>
+                                    <td>{{volunteer.volunteer.phone_number}}</td>
+                                </tr>
+                                {%empty%}
+                                <tr>
+                                    <td colspan="3">Nothing yet</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    
+{% endblock  %}
+
+{% block script %}
+    <script>
+        $(document).ready(()=>{
+            $("#volunteers").toggleClass("active");
+        });
+        
+    </script>
+{% endblock%}

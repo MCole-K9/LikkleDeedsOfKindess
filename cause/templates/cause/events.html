@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block title%}<title>Events</title> {%endblock%}
+
+
+
+{%block content%}
+
+<header id="gallery-header">
+    {%include 'component/navbar.html' %}
+    <div class="px-5 mt-5 text-white">
+        <h1>Upcoming Events</h1>
+        {% include "component/seperator.html" %}
+    </div>
+</header>
+<main class="container-fluid">
+    <section id="upcoming-events" class="px-5 mt-5">
+        {% for event in events %}
+        <div class="d-flex flex-wrap mb-4 ">
+            <div class="d-none d-md-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                <div class="card-body  text-white   " >
+                    <span style="margin: auto">
+                        <h6>{{event.date|date:"M"}}</h6>
+                        <hr>
+                        <h6>{{event.date|date:"d"}}</h6>
+                    </span>
+                </div>
+            </div>
+            <div class="flex-grow-1" style="width: 85%" >
+                <span class="d-none d-md-block">{{event.date|date:"l, h:i A"}}</span>
+                <span class="d-block d-md-none">{{event.date|date:"l, M d, h:i A"}}</span>
+                <h5>{{event.title}}</h5>
+                <p>{{event.description|truncatechars:160}}</p>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-info text-white" onclick="goToLocation('{% url 'cause:EventDetail' event.id %}')" >View Details</button>
+                </div>
+            </div>
+        </div>
+        {%empty%}
+        <h4>Nothig yet. Events coming soon!</h4>
+    {% endfor %}
+    </section>
+</main>
+
+{%endblock%}

@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#home-header{
+    background-image: url("../media/images/pexels-ron-lach-9169661.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* #donate{
+    background-attachment: fixed;
+    height: 80vh;
+} */
+
+div{
+    /* should stop texting overflowing globally as long as wrapped with a div */
+    word-wrap: break-word ;
+}
+
+#call-to-action{
+    margin-top: 9rem;
+    max-width: 50%;
+}
+nav li a{
+    font-size: 1.2rem;
+    color: white;
+}
+#donate-now{
+    background-color: #31A98B;
+}
+#join-us{
+    background-color: #2C967C;
+}
+#get-involved{
+    background-color: #26836C;
+}
+#get-involved:hover, #donate-now:hover, #join-us:hover {
+    background-color: #37BC9B;
+    cursor : pointer;
+}
+
+#cause-header, #gallery-header, #about-header, #cause-detail-header, #project-header, #donate-header{
+
+    background-image: url("../media/images/pexels-ron-lach-9169661.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vh;
+    background-position: 23% 23%;
+}
+
+.event-date{
+    background-color: #31A98B;
+    
+}
+
+.amount-check-lbl{
+    /* padding: 8px 48px; */
+    width: 100%;
+}
+
+.h-rule{
+    width: 25%;
+    position: relative;
+    bottom: 5px;
+}
+img{
+    object-fit: cover;
+}
+
+/*Bootstrap Customization */
+.btn-info{
+    background-color: #31A98B;
+    border: #31A98B solid 1px ;
+}
+.btn-info:hover{
+    background-color: #37BC9B;
+    
+}
+.btn-outline-info{
+    border: #31A98B solid 1px ;
+    color: #31A98B;
+}
+.btn-outline-info:hover{
+    background-color: #31A98B;
+    border: #31A98B solid 1px ;
+}
+
+.btn-check:active+.btn-info, .btn-check:checked+.btn-info, .btn-info.active, .btn-info:active, .show>.btn-info.dropdown-toggle {
+    color: white;
+    background-color: #37BC9B;
+    border-color: #37BC9B;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #31A98B;
+}
+
+

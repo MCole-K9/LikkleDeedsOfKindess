@@ -1,0 +1,56 @@
+{% extends 'Portal.html' %}
+{% load static %} 
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Events</h2>
+            <button class="btn btn-info text-white my-2" onclick="goToLocation('{% url 'user:AddEvent' %}')" >Add Event <i class="fa-solid fa-plus"></i></button>
+        </div>
+        <hr>
+        <div class="">
+            {% for event in events %}
+            
+                <div class="d-flex flex-wrap mb-4 ">
+                    <div class="d-none d-md-flex align-items-center py-2 text-center event-date me-2 rounded" style="max-height: 200px;">
+                        <div class="card-body  text-white   " >
+                            <span style="margin: auto">
+                                <h6>{{event.date|date:"M"}}</h6>
+                                <hr class>
+                                <h6>{{event.date|date:"d"}}</h6>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 w-75" >
+                        <span class="d-none d-md-block">{{event.date|date:"l, h:i A"}}</span>
+                        <span class="d-block d-md-none">{{event.date|date:"l, M d, h:i A"}}</span>
+                        <h5>{{event.title}}</h5>
+                        <p class="w-75">{{event.description|truncatechars:150}}</p>
+                        <div class="d-flex justify-content-start">
+                            <button class="btn btn-sm btn-info text-white px-3 me-2" onclick="goToLocation('{% url 'user:EditEvent' event.id %}')">Edit</button>
+                            <button class="btn btn-sm btn-danger" onclick="handleDelete('{% url 'user:DeleteEvent' event.id %}')" data-bs-toggle="modal" data-bs-target="#confirmation">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                {%empty%}
+                <h4>Nothing Yet. Add Event to get started</h4>
+
+            {% endfor %}
+        </div>
+
+        
+        
+    </div>
+    
+{% endblock  %}
+
+{% block script %}
+    <script>
+        $(document).ready(()=>{
+            $("#events").toggleClass("active");
+
+        });
+    </script>
+
+{% endblock%}

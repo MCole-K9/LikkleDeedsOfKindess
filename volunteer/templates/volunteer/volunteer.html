@@ -1,0 +1,92 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block title%}<title>Volunteer</title> {%endblock%}
+
+
+{%block content%}
+
+<header id="gallery-header">
+    {%include 'component/navbar.html' %}
+    <div class="px-5 mt-5 text-white">
+        <h1>Volunteer</h1>
+        {% include "component/seperator.html" %}
+    </div>
+</header>
+<main class="container-fluid">
+   
+  <section id="volunteer" class="px-5 pt-5">
+        <div class="row mb-5">
+            <div class="col-12 col-lg-5">
+                <div class=" ratio ratio-16x9">
+                    <img class="img-fluid " src="{% static 'media/images/pexels-lagos-food-bank-initiative-8060428.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-lg-7">
+                <h3 class="mb-3">Volunteer Now</h3>
+                <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat reiciendis ipsum quisquam dolorum incidunt ipsam animi asperiores sit? A delectus ex id, ducimus pariatur distinctio. Consequuntur enim molestias esse eveniet!</p>
+                <button class="btn btn-info text-white" onclick="handleVolunteers('{% url 'volunteer:GeneralVolunteer' %}')" data-bs-toggle="modal" data-bs-target="#volunteer_modal">Volunter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-5">
+                <div class=" ratio ratio-16x9">
+                    <img class="img-fluid " src="{% static 'media/images/pexels-christina-morillo-1181344.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-lg-7">
+                <h3 class="mb-3">Administrative Support</h3>
+                <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat reiciendis ipsum quisquam dolorum incidunt ipsam animi asperiores sit? A delectus ex id, ducimus pariatur distinctio. Consequuntur enim molestias esse eveniet!</p>
+                <button class="btn btn-info text-white" onclick="handleVolunteers('{% url 'volunteer:AdminVolunteer' %}')" data-bs-toggle="modal" data-bs-target="#volunteer_modal">Volunter</button>
+            </div>
+        </div>
+  </section>
+
+  <div id="volunteer_modal" class="modal fade" tabindex="-1" aria-labelledby="volunteer_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Volunteer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="volunteer_form" method="POST" action="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="my-2">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="John">
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="my-2">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Doe.">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="my-2">
+                        <label for="email-address" class="form-label">Email Address</label>
+                        <input type="text" class="form-control" name="email" id="email_address" placeholder=" peter@zylker.com">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="my-2">
+                        <label for="phone-number" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="(849)-3455-345">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end my-2">
+                    <input class="btn btn-info px-3 text-white" type="submit" value="Submit" >
+                </div>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</main>
+
+{%endblock%}
