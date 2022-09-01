@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f2b82710302fafc53f1d8831f047fd3f95619fee8e9b41bd57eb55c6a9fc5a84"
+            "sha256": "05b0fd4b732ed618bf6d1de8cca35265ded304bfa5ebd48b1e682cea1b50e6e0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -50,10 +50,11 @@
         },
         "django-psdb-engine": {
             "hashes": [
-                "sha256:28306f34b2b2e65cce2cfa97954de8073ca3b864d0f5d21aa7d553db20ee581e"
+                "sha256:d6e60a5cda4c39525b577560ff3b379cf5eca37875408355c760ea17fbd4d5a3",
+                "sha256:e04ff0fa110e5592883300191fa973b1f679ad001a6988b1fcd521a22a31ff33"
             ],
             "index": "pypi",
-            "version": "==1.0.4"
+            "version": "==1.0.6"
         },
         "gunicorn": {
             "hashes": [
@@ -163,6 +164,14 @@
             ],
             "markers": "sys_platform == 'win32'",
             "version": "==2022.2"
+        },
+        "whitenoise": {
+            "hashes": [
+                "sha256:8e9c600a5c18bd17655ef668ad55b5edf6c24ce9bdca5bf607649ca4b1e8e2c2",
+                "sha256:8fa943c6d4cd9e27673b70c21a07b0aa120873901e099cd46cab40f7cc96d567"
+            ],
+            "index": "pypi",
+            "version": "==6.2.0"
         }
     },
     "develop": {}
