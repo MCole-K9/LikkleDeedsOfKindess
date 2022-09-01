@@ -1,22 +1,22 @@
 {%load static%}
 <nav class="navbar navbar-expand-lg navbar-dark py-3">
-    <div class="container-fluid px-5">
-      <a class="navbar-brand" href="{% url 'Index' %}"><img class="img-fluid rounded me-1" src="{%static '/images/Logo.jpeg'%}" alt="Logo" style="width: 100px; height: 100px;">Likkle Deeds of Kindness</a>
+    <div id="nav-container" class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand" href="{% url 'Index' %}">Likkle Deeds of Kindness</a>   {% comment %} <img class="img-fluid rounded me-1" src="{%static '/images/Logo.jpeg'%}" alt="Logo" style="width: 100px; height: 100px;"> {% endcomment %}  
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto ">
           <li class="nav-item">
-            <a class="nav-link active ms-4" aria-current="page" href=" {%url 'Index' %}">Home</a>
+            <a class="nav-link active ms-lg-4" aria-current="page" href=" {%url 'Index' %}">Home</a>
           </li>
-          <li class="nav-item  ms-4">
+          <li class="nav-item  ms-lg-4">
             <a class="nav-link" href="{%url 'About' %}">About</a>
           </li>
-          <li class="nav-item  ms-4">
+          <li class="nav-item  ms-lg-4">
             <a class="nav-link" href="{%url 'cause:Cause'%}">Causes</a>
           </li>
-          <li class="nav-item  ms-4">
+          <li class="nav-item  ms-lg-4">
             <a class="nav-link" href="{%url 'Gallery' %}">Gallary</a>
           </li>
           {% if request.user.is_authenticated %}

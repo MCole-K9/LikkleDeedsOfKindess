@@ -20,8 +20,9 @@ div{
 }
 
 #call-to-action{
-    margin-top: 9rem;
-    max-width: 50%;
+    margin-top: 8rem;
+    width: 50%;
+    word-wrap: break-word;
 }
 nav li a{
     font-size: 1.2rem;
@@ -98,3 +99,18 @@ img{
 }
 
 
+@media screen and (max-width: 768px){
+
+    #call-to-action{
+        width: 100%;
+    }
+
+    #home-header{
+        background-position: 23% 23%;
+    }
+
+    #nav-container{
+        padding: 0 1rem;
+    }
+   
+}
