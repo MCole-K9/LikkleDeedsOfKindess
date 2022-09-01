@@ -1,1 +1,1 @@
-web: gunicorn LikkleDeedsOfKindnes.wsgi
+web: gunicorn LikkleDeedsOfKindness.wsgi
