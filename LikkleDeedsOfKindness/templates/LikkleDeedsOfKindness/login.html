@@ -15,7 +15,7 @@
 </header>
 <main>
 
-    <form class="shadow p-5 container my-5" action="{% url 'Login' %}" method="post" style="margin: auto auto; width: 50%;" >
+    <form class="shadow p-4 w-75 w-lg-50 container my-5 mx-auto" action="{% url 'Login' %}" method="post">
         {% csrf_token %}
         <div class="text-center">
             <h3>Administration</h3>
@@ -30,7 +30,10 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="">
             </div>
         </div>
-        <input type="submit" class="btn btn-info text-white px-4 mt-3" value="Login">
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="btn btn-info text-white px-5 mt-3" value="Login">
+        </div>
+        
     </form>
 </main>
 
