@@ -95,3 +95,9 @@ function handleDelete(requestUrl){
 
     document.getElementById("delete_link").setAttribute("href", requestUrl);
 }
+
+//Toggles sidebar
+document.getElementById("toggle-btn").addEventListener("click", function(){
+
+    document.getElementById("side-bar").classList.toggle("active")
+})
