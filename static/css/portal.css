@@ -25,6 +25,7 @@ li span{
     max-width: 270px;
     height: 270px;
     transition: margin 0.2s;
+
 }
 
 .content{
@@ -46,7 +47,7 @@ li span{
         margin-left: -270px; */
 
 
-        margin-left: -212px;
+        margin-left: -215px;
        
         height: 100vh;
         
