@@ -35,7 +35,7 @@
             <h4>Get Involved</h4>
         </div>
     </section>
-    <div class="row px-5 mb-5">
+    <div class="row px-lg-5 px-3 mb-5">
 
         <div class="col-12 col-lg-5">
             <h1>Causes that need your urgent attention </h1>
@@ -46,7 +46,7 @@
         </div>
         
     </div>
-    <section id="causes-home" class="px-5">
+    <section id="causes-home" class="px-lg-5 px-3">
         <div class="row gy-3">
             {% for cause in causes %}
                 <div class="col-12 col-md-4 col-lg-3">
@@ -70,7 +70,7 @@
             
         </div> 
     </section>
-    <section id="event-gallery" class="px-5 my-5">
+    <section id="event-gallery" class="px-lg-5 px-3 my-5">
         <div class="row">
             <div id="event" class="col-12 col-lg-6 mb-5">
                 <h3 >Upcoming Events</h3>
@@ -106,9 +106,9 @@
             <div id="gallary" class="col-12 col-lg-6 mb-5" >
                 <h3>Updates from Gallary</h3>
                 {% include "component/seperator.html" %}
-                <div id="home-photos" class="row px-3 pb-3 pt-5 rounded" style="background-color: #31A98B ;">
+                <div id="home-photos" class="row px-lg-3 px-1 pb-3 pt-5 rounded" style="background-color: #31A98B ;">
                     {% for image in images %}
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <a href="{% url 'project:Project' image.project.pk %}">
                                 <div class="ratio ratio-16x9">
                                     <img class="figure-img img-fluid rounded" src="{{image.image.url}}" alt="{{image.caption}}">
@@ -131,7 +131,7 @@
         <div class="text-center">
             <h3 class="mb-1">Some of Our Success Stories</h3>
         </div>
-        <section id="success-stories" class="bg-light px-5  mb-5">
+        <section id="success-stories" class="bg-light px-lg-5 px-3 mb-5">
             <div id="carouselSuccessStories" class="carousel slide mt-4 py-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     {% for story in stories %}
