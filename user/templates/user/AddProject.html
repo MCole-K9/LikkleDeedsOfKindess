@@ -5,8 +5,9 @@
 
     
     <div class="container-fluid">
+        <h4>{%if project%}Edit{% else %}Add{% endif %} Project</h4>
         {% comment %} if project in context exists then update {% endcomment %}
-        <form method="POST" action="{% if project %} {% url 'user:EditProject' project.id %} {% else %}{% url 'user:AddProject' cause_id %}{% endif %} "   encType="multipart/form-data" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
+        <form method="POST" action="{% if project %} {% url 'user:EditProject' project.id %} {% else %}{% url 'user:AddProject' cause_id %}{% endif %} "   encType="multipart/form-data" class="shadow px-3 px-lg-5  py-3 rounded mt-3" style=" margin: auto auto; ">
             {% csrf_token %}
             <div class="row gy-2">
                 <div class="col-12">

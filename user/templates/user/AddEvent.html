@@ -4,7 +4,8 @@
 {% block content %}
 
     <div class="container-fluid">
-        <form method="POST" action="{% if event %} {% url 'user:EditEvent' event.id%}  {% else %} {% url 'user:AddEvent' %}{% endif %} "   encType="multipart/form-data" class="shadow px-5 py-3 rounded mt-3" style="width: 90%; margin: auto auto; ">
+        <h4>{%if event%}Edit{% else %}Add{% endif %} Event</h4>
+        <form method="POST" action="{% if event %} {% url 'user:EditEvent' event.id%}  {% else %} {% url 'user:AddEvent' %}{% endif %} "   encType="multipart/form-data" class="shadow px-lg-5 px-3 py-3 rounded mt-3" margin: auto auto; ">
             {% csrf_token %}
             <div class="row gy-2">
                 <div class="col-12">
@@ -15,23 +16,23 @@
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" name="description" id="description" placeholder="A Brief Description" rows="4">{% if event %}{{event.description}} {% endif %}</textarea>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <label for="" class="form-label">Date</label>
                     <input class="form-control" {% if event %}value="{{event.date|date:"Y-m-d"}}" {% endif %} type="date" name="date" id="">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <label for="" class="form-label">Time</label>
                     <input class="form-control" {% if event %}value="{{event.date|date:"H:i"}}" {% endif %} type="time" name="time" id="">
                 </div>
-                <div class="col-12">
+                <div class="col-lg-612">
                     <label for="title" class="form-label">Street Address</label>
                     <input type="text" class="form-control" name="street_address" {% if event %}value="{{event.street}}" {% endif %} id="title" placeholder="Title">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <label for="title" class="form-label">City</label>
                     <input type="text" class="form-control" name="city" {% if event %}value="{{event.city}}" {% endif %} id="title" placeholder="City">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <label for="title" class="form-label">Parish</label>
                     <input type="text" class="form-control" name="parish" {% if event %}value="{{event.parish}}" {% endif %} id="title" placeholder="Parish">
                 </div>

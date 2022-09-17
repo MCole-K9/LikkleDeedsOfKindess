@@ -57,4 +57,7 @@ li span{
         margin: 0;
       
     }
+    .content{
+        padding: 10px;
+    }
 }
