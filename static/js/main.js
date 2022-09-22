@@ -65,11 +65,48 @@ radioBtns.forEach(radioBtn =>{
 
 let toStep2Btn = document.getElementById("toStep2");
 
-toStep2Btn.addEventListener("click", ()=>{
+toStep2Btn.addEventListener("click", ()=> {
 
-    let Step2TabTrigger = document.getElementById("pills-step2-tab");
-    let tabTrigger = new bootstrap.Tab(Step2TabTrigger);
-    tabTrigger.show();
+
+    //Donation Validation - Amount Selected
+
+    let amountChecked = false;
+    let amountEntered = false;
+
+    radioBtns.forEach(radioBtn => {
+
+        //console.log(radioBtn.checked);
+
+        if(radioBtn.checked && radioBtn.value > 0){
+            
+            amountChecked = true;
+
+        }
+        
+    })
+
+    //amount input
+    if (document.getElementById("custom-amount").value > 0 ){
+
+        amountEntered = true;
+
+    }
+
+
+    if(amountChecked || amountEntered){
+
+        
+        let Step2TabTrigger = document.getElementById("pills-step2-tab");
+        let tabTrigger = new bootstrap.Tab(Step2TabTrigger);
+        tabTrigger.show();
+
+    }else{
+
+        alert("Please Select or Enter an Amount to Continue")
+     
+    }
+
+    
 });
 
 let backToStep1Btn = document.getElementById("backToStep1");
@@ -85,9 +122,47 @@ let toStep3Btn = document.getElementById("toStep3");
 
 toStep3Btn.addEventListener("click", ()=>{
 
-    let Step3TabTrigger = document.getElementById("pills-step3-tab");
-    let tabTrigger = new bootstrap.Tab(Step3TabTrigger);
-    tabTrigger.show();
+    //biodata
+    let bioValid = false;
+
+    let firstName = document.getElementById("first-name").value;
+    let lastName = document.getElementById("last-name").value;
+    let email = document.getElementById("email-address").value;
+    let phoneNumber = document.getElementById("phone-number").value;
+
+    console.log(email);
+
+    if (firstName == ""){
+
+        alert("Please Enter First Name");
+
+    }else if (lastName == ""){
+
+        alert("Please Enter Last Name");
+
+    }else if(!email.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/) || email == ""){
+
+    
+        alert("Blank or Invalid Email Format");
+
+    }else if(!phoneNumber.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im) || phoneNumber == ""){
+
+        alert("Blank or Invalid Phone number Format");
+
+    }else{
+
+        bioValid = true;
+    }
+
+
+    if(bioValid){
+
+        let Step3TabTrigger = document.getElementById("pills-step3-tab");
+        let tabTrigger = new bootstrap.Tab(Step3TabTrigger);
+        tabTrigger.show();
+    }
+
+    
 });
 
 let backToStep2Btn = document.getElementById("backToStep2");

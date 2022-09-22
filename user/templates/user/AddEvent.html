@@ -10,31 +10,31 @@
             <div class="row gy-2">
                 <div class="col-12">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" name="title" {% if event %}value="{{event.title}}" {% endif %} id="title" placeholder="Title">
+                    <input type="text" class="form-control" name="title" {% if event %}value="{{event.title}}" {% endif %} id="title" placeholder="Title" required>
                 </div>
                 <div class="col-12 ">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" name="description" id="description" placeholder="A Brief Description" rows="4">{% if event %}{{event.description}} {% endif %}</textarea>
+                    <textarea class="form-control" name="description" id="description" placeholder="A Brief Description" rows="4" required>{% if event %}{{event.description}} {% endif %}</textarea>
                 </div>
                 <div class="col-lg-6">
                     <label for="" class="form-label">Date</label>
-                    <input class="form-control" {% if event %}value="{{event.date|date:"Y-m-d"}}" {% endif %} type="date" name="date" id="">
+                    <input class="form-control" {% if event %}value="{{event.date|date:"Y-m-d"}}" {% endif %} type="date" name="date" id="" required>
                 </div>
                 <div class="col-lg-6">
                     <label for="" class="form-label">Time</label>
-                    <input class="form-control" {% if event %}value="{{event.date|date:"H:i"}}" {% endif %} type="time" name="time" id="">
+                    <input class="form-control" {% if event %}value="{{event.date|date:"H:i"}}" {% endif %} type="time" name="time" id="" required>
                 </div>
                 <div class="col-lg-612">
                     <label for="title" class="form-label">Street Address</label>
-                    <input type="text" class="form-control" name="street_address" {% if event %}value="{{event.street}}" {% endif %} id="title" placeholder="Title">
+                    <input type="text" class="form-control" name="street_address" {% if event %}value="{{event.street}}" {% endif %} id="title" placeholder="Title" >
                 </div>
                 <div class="col-lg-6">
                     <label for="title" class="form-label">City</label>
-                    <input type="text" class="form-control" name="city" {% if event %}value="{{event.city}}" {% endif %} id="title" placeholder="City">
+                    <input type="text" class="form-control" name="city" {% if event %}value="{{event.city}}" {% endif %} id="title" placeholder="City" required>
                 </div>
                 <div class="col-lg-6">
                     <label for="title" class="form-label">Parish</label>
-                    <input type="text" class="form-control" name="parish" {% if event %}value="{{event.parish}}" {% endif %} id="title" placeholder="Parish">
+                    <input type="text" class="form-control" name="parish" {% if event %}value="{{event.parish}}" {% endif %} id="title" placeholder="Parish" required>
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-3">
